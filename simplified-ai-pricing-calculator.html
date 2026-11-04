@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="DAP5OxbQWlkWg3E-838aTb4W8RP-yG6_Dae9UgvgcYU" />
+  <title>Simplified AI Pricing & Marketing Stack Consolidation Calculator (2026)</title>
+  <meta name="description" content="Calculate how much you save by replacing separate subscriptions for Canva Pro, ChatGPT Plus, Jasper, Buffer, and video tools with Simplified AI ($14/mo)." />
+  <link rel="canonical" href="https://luffy55ru.github.io/ai-roi-calculator/simplified-ai-pricing-calculator.html" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="index.html" class="brand-logo">
+        <span class="logo-icon">⚡</span>
+        <span>AIROI<span style="color:#34d399;">.dev</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">All 4 Calculators</a></li>
+        <li><a href="chatgpt-plus-vs-api-cost-calculator.html">ChatGPT vs API</a></li>
+        <li><a href="customgpt-pricing-and-roi-calculator.html">CustomGPT ROI</a></li>
+        <li><a href="submagic-pricing-and-roi-calculator.html">Submagic ROI</a></li>
+        <li><a href="fireflies-ai-roi-calculator.html">Fireflies ROI</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://simplified.com?fpr=ramadan-b1d241" target="_blank" rel="noopener sponsored" class="btn-primary">Try Simplified Free →</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero container">
+    <div class="trust-pill">● 5-in-1 AI Marketing Stack Consolidation</div>
+    <h1>
+      Simplified AI Pricing vs. Separate Tools<br />
+      <span class="gradient-text">SaaS Consolidation Calculator</span>
+    </h1>
+    <p>
+      Stop paying 5 separate monthly bills for AI writing, graphic design, video clips, and social media scheduling. Calculate your exact annual savings with Simplified AI.
+    </p>
+  </section>
+
+  <main class="container">
+    <div class="calc-grid">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">Check the Marketing & AI Tools You Currently Pay For</h2>
+            <p class="card-subtitle">Simplified AI includes all 5 modules inside one unified workspace.</p>
+          </div>
+        </div>
+
+        <div class="sub-grid">
+          <label class="sub-item checked">
+            <span class="sub-item-left">
+              <input type="checkbox" class="simp-cb" data-price="20" checked />
+              <span class="sub-name">ChatGPT Plus / Copywriter</span>
+            </span>
+            <span class="sub-price">$20/mo</span>
+          </label>
+          <label class="sub-item checked">
+            <span class="sub-item-left">
+              <input type="checkbox" class="simp-cb" data-price="15" checked />
+              <span class="sub-name">Canva Pro (Design)</span>
+            </span>
+            <span class="sub-price">$15/mo</span>
+          </label>
+          <label class="sub-item checked">
+            <span class="sub-item-left">
+              <input type="checkbox" class="simp-cb" data-price="18" checked />
+              <span class="sub-name">Buffer / Hootsuite Scheduler</span>
+            </span>
+            <span class="sub-price">$18/mo</span>
+          </label>
+          <label class="sub-item checked">
+            <span class="sub-item-left">
+              <input type="checkbox" class="simp-cb" data-price="24" checked />
+              <span class="sub-name">AI Video / Presentation Tool</span>
+            </span>
+            <span class="sub-price">$24/mo</span>
+          </label>
+        </div>
+
+        <div class="control-group" style="margin-bottom:0;">
+          <div class="control-label">
+            <span>Number of Team Seats Paying for These Tools</span>
+            <span id="simpSeatsVal" class="control-value">2 seats</span>
+          </div>
+          <input type="range" id="simpSeats" min="1" max="10" step="1" value="2" />
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="result-highlight">
+          <div class="result-label">Annual Consolidation Savings</div>
+          <div id="simpAnnualSaved" class="result-big-number">$1,512/yr</div>
+          <p class="result-subtext">
+            Net savings when consolidating into Simplified AI One ($14–$29/mo).
+          </p>
+        </div>
+
+        <div class="metrics-row">
+          <div class="metric-box">
+            <div class="metric-box-label">Separate Subscriptions</div>
+            <div id="simpOldSpend" class="metric-box-val" style="color:#f43f5e;">$154/mo</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-box-label">Simplified AI Equivalent</div>
+            <div id="simpNewSpend" class="metric-box-val" style="color:#34d399;">$28/mo</div>
+          </div>
+        </div>
+
+        <div class="rec-card" style="border-color:var(--accent-emerald);">
+          <div class="rec-top">
+            <span class="rec-title">Simplified AI — All-in-One AI Design, Video, Copy & Social</span>
+            <span class="rec-badge">Save 75%</span>
+          </div>
+          <p class="rec-desc">Generate AI graphics, edit videos, write SEO blogs, and auto-schedule to Instagram, LinkedIn, X, and TikTok from one dashboard.</p>
+          <div class="rec-footer">
+            <span class="rec-price">Free Forever Tier • Pro From $14/mo</span>
+            <a href="https://simplified.com?fpr=ramadan-b1d241" target="_blank" rel="noopener sponsored" class="btn-primary">Start Free on Simplified →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><strong>⚡ AIROI.dev</strong> — <a href="index.html" style="color:#34d399;">Back to All 4 AI ROI Calculators</a></div>
+      <div>2026 Independent AI Pricing Benchmarks</div>
+    </div>
+  </footer>
+
+  <script>
+    const cbs = document.querySelectorAll(".simp-cb");
+    const simpSeats = document.getElementById("simpSeats");
+    function calcSimp() {
+      let base = 0;
+      cbs.forEach(cb => {
+        const item = cb.closest(".sub-item");
+        if (cb.checked) {
+          base += parseFloat(cb.getAttribute("data-price"));
+          item.classList.add("checked");
+        } else {
+          item.classList.remove("checked");
+        }
+      });
+      const seats = parseInt(simpSeats.value, 10);
+      const oldMo = base * seats;
+      const newMo = seats * 14;
+      const savedYr = Math.max(0, (oldMo - newMo) * 12);
+      document.getElementById("simpSeatsVal").textContent = `${seats} ${seats === 1 ? "seat" : "seats"}`;
+      document.getElementById("simpOldSpend").textContent = `$${oldMo}/mo`;
+      document.getElementById("simpNewSpend").textContent = `$${newMo}/mo`;
+      document.getElementById("simpAnnualSaved").textContent = `$${savedYr.toLocaleString()}/yr`;
+    }
+    cbs.forEach(cb => cb.addEventListener("change", calcSimp));
+    simpSeats.addEventListener("input", calcSimp);
+    calcSimp();
+  </script>
+</body>
+</html>

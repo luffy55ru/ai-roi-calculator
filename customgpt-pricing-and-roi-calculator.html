@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="DAP5OxbQWlkWg3E-838aTb4W8RP-yG6_Dae9UgvgcYU" />
+  <title>CustomGPT.ai Pricing & Customer Support ROI Calculator (2026)</title>
+  <meta name="description" content="Calculate your exact monthly customer support savings and RAG build vs. buy ROI with CustomGPT.ai. Compare CustomGPT plans ($89/mo) against hiring support agents or building custom vector databases." />
+  <link rel="canonical" href="https://luffy55ru.github.io/ai-roi-calculator/customgpt-pricing-and-roi-calculator.html" />
+
+  <!-- Favicons for Google Search & Browsers -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does CustomGPT.ai cost in 2026 vs building a custom RAG pipeline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CustomGPT.ai starts at $89/month for the Standard plan and $449/month for Enterprise Premium, whereas building and maintaining an internal RAG pipeline with Pinecone, LangChain, and engineering hours typically costs $4,500 to $12,000 upfront plus $600+/month in maintenance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What percentage of support tickets can CustomGPT.ai deflect?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Businesses training CustomGPT.ai on their helpdesk docs, PDFs, and website sitemap typically deflect 60% to 80% of tier-1 customer support inquiries with anti-hallucination citations."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="index.html" class="brand-logo">
+        <span class="logo-icon">⚡</span>
+        <span>AIROI<span style="color:#34d399;">.dev</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">All 4 Calculators</a></li>
+        <li><a href="chatgpt-plus-vs-api-cost-calculator.html">ChatGPT vs API</a></li>
+        <li><a href="submagic-pricing-and-roi-calculator.html">Submagic ROI</a></li>
+        <li><a href="fireflies-ai-roi-calculator.html">Fireflies ROI</a></li>
+        <li><a href="simplified-ai-pricing-calculator.html">Simplified ROI</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://customgpt.ai/?fpr=ramadan-bf3619" target="_blank" rel="noopener sponsored" class="btn-primary">Try CustomGPT Free →</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero container">
+    <div class="trust-pill">● B2B Support & Enterprise RAG Benchmark</div>
+    <h1>
+      CustomGPT.ai Pricing &<br />
+      <span class="gradient-text">Ticket Deflection ROI Calculator</span>
+    </h1>
+    <p>
+      Calculate how much your company saves by deflecting tier-1 customer support tickets and replacing internal document searches with an anti-hallucination CustomGPT agent.
+    </p>
+  </section>
+
+  <main class="container">
+    <div class="calc-grid">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">Enter Your Monthly Support & Knowledge Volume</h2>
+            <p class="card-subtitle">See your instant payback period using CustomGPT.ai ($89/mo Standard Plan).</p>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span>Monthly Customer Support Tickets / Inquiries</span>
+            <span id="ticketsMoVal" class="control-value">1,200 tickets/mo</span>
+          </div>
+          <input type="range" id="ticketsMo" min="100" max="15000" step="100" value="1200" />
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span>Average Cost Per Human-Resolved Ticket ($ USD)</span>
+            <span id="costPerTicketVal" class="control-value">$6/ticket</span>
+          </div>
+          <input type="range" id="costPerTicket" min="2" max="25" step="1" value="6" />
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span>AI Ticket Deflection Rate (65% Industry Avg)</span>
+            <span id="deflectRateVal" class="control-value">65% deflected</span>
+          </div>
+          <input type="range" id="deflectRate" min="30" max="85" step="5" value="65" />
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="result-highlight">
+          <div class="result-label">Net Annual Support Savings</div>
+          <div id="cgptAnnualSaved" class="result-big-number">$55,092/yr</div>
+          <p class="result-subtext">
+            Net savings after subtracting the $89/month CustomGPT.ai subscription.
+          </p>
+        </div>
+
+        <div class="metrics-row">
+          <div class="metric-box">
+            <div class="metric-box-label">Tickets Auto-Resolved / Mo</div>
+            <div id="ticketsDeflectedBox" class="metric-box-val" style="color:#34d399;">780/mo</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-box-label">Net Monthly ROI</div>
+            <div id="cgptMonthlyNetBox" class="metric-box-val" style="color:#93c5fd;">$4,591/mo</div>
+          </div>
+        </div>
+
+        <div class="rec-card" style="border-color:var(--accent-emerald);">
+          <div class="rec-top">
+            <span class="rec-title">CustomGPT.ai — #1 Anti-Hallucination RAG Platform</span>
+            <span class="rec-badge">7-Day Free Trial</span>
+          </div>
+          <p class="rec-desc">Ingest 1,400+ document formats, website sitemaps, Helpdesk articles, and YouTube videos in minutes. Includes citations for every answer and zero coding required.</p>
+          <div class="rec-footer">
+            <span class="rec-price">Standard $89/mo • Teams $449/mo</span>
+            <a href="https://customgpt.ai/?fpr=ramadan-bf3619" target="_blank" rel="noopener sponsored" class="btn-primary">Start Free 7-Day Trial →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section-block">
+      <div class="section-header">
+        <h2>Explore More Specialized AI ROI Calculators</h2>
+      </div>
+      <div class="partner-grid">
+        <a href="chatgpt-plus-vs-api-cost-calculator.html" class="partner-card" style="text-decoration:none; color:inherit;">
+          <span class="rec-title">💳 ChatGPT Plus vs. API Calculator</span>
+          <p class="rec-desc" style="margin-top:0.5rem;">Compare $20/mo flat subscriptions vs pay-as-you-go API token costs.</p>
+          <span style="color:#34d399; font-weight:700; font-size:0.85rem;">Open Calculator →</span>
+        </a>
+        <a href="submagic-pricing-and-roi-calculator.html" class="partner-card" style="text-decoration:none; color:inherit;">
+          <span class="rec-title">🎬 Submagic AI Video ROI Calculator</span>
+          <p class="rec-desc" style="margin-top:0.5rem;">Compare human video editing rates vs AI captions & B-Roll automation.</p>
+          <span style="color:#34d399; font-weight:700; font-size:0.85rem;">Open Calculator →</span>
+        </a>
+        <a href="fireflies-ai-roi-calculator.html" class="partner-card" style="text-decoration:none; color:inherit;">
+          <span class="rec-title">🎙️ Fireflies.ai Meeting ROI Calculator</span>
+          <p class="rec-desc" style="margin-top:0.5rem;">Calculate hours and payroll saved by automating meeting notes & CRM entry.</p>
+          <span style="color:#34d399; font-weight:700; font-size:0.85rem;">Open Calculator →</span>
+        </a>
+        <a href="simplified-ai-pricing-calculator.html" class="partner-card" style="text-decoration:none; color:inherit;">
+          <span class="rec-title">🎨 Simplified AI Stack Consolidation Calculator</span>
+          <p class="rec-desc" style="margin-top:0.5rem;">See how much you save replacing Canva, ChatGPT, and Buffer with Simplified.</p>
+          <span style="color:#34d399; font-weight:700; font-size:0.85rem;">Open Calculator →</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><strong>⚡ AIROI.dev</strong> — <a href="index.html" style="color:#34d399;">Back to All 4 AI ROI Calculators</a></div>
+      <div>2026 Independent AI Pricing Benchmarks</div>
+    </div>
+  </footer>
+
+  <script>
+    const ticketsMo = document.getElementById("ticketsMo");
+    const costPerTicket = document.getElementById("costPerTicket");
+    const deflectRate = document.getElementById("deflectRate");
+    function calcCgpt() {
+      const t = parseInt(ticketsMo.value, 10);
+      const c = parseInt(costPerTicket.value, 10);
+      const d = parseInt(deflectRate.value, 10) / 100;
+      const deflected = Math.round(t * d);
+      const grossMo = deflected * c;
+      const planCost = t > 5000 ? 449 : 89;
+      const netMo = Math.max(0, grossMo - planCost);
+      document.getElementById("ticketsMoVal").textContent = `${t.toLocaleString()} tickets/mo`;
+      document.getElementById("costPerTicketVal").textContent = `$${c}/ticket`;
+      document.getElementById("deflectRateVal").textContent = `${Math.round(d * 100)}% deflected`;
+      document.getElementById("ticketsDeflectedBox").textContent = `${deflected.toLocaleString()}/mo`;
+      document.getElementById("cgptMonthlyNetBox").textContent = `$${netMo.toLocaleString()}/mo`;
+      document.getElementById("cgptAnnualSaved").textContent = `$${(netMo * 12).toLocaleString()}/yr`;
+    }
+    [ticketsMo, costPerTicket, deflectRate].forEach(el => el.addEventListener("input", calcCgpt));
+    calcCgpt();
+  </script>
+</body>
+</html>

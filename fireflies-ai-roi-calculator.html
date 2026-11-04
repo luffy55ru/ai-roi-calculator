@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="DAP5OxbQWlkWg3E-838aTb4W8RP-yG6_Dae9UgvgcYU" />
+  <title>Fireflies.ai Pricing & Meeting Productivity ROI Calculator (2026)</title>
+  <meta name="description" content="Calculate how many hours and payroll dollars your sales and engineering teams save using Fireflies.ai ($10/mo) for automatic meeting transcription, summaries, and CRM logging." />
+  <link rel="canonical" href="https://luffy55ru.github.io/ai-roi-calculator/fireflies-ai-roi-calculator.html" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="index.html" class="brand-logo">
+        <span class="logo-icon">⚡</span>
+        <span>AIROI<span style="color:#34d399;">.dev</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">All 4 Calculators</a></li>
+        <li><a href="chatgpt-plus-vs-api-cost-calculator.html">ChatGPT vs API</a></li>
+        <li><a href="customgpt-pricing-and-roi-calculator.html">CustomGPT ROI</a></li>
+        <li><a href="submagic-pricing-and-roi-calculator.html">Submagic ROI</a></li>
+        <li><a href="simplified-ai-pricing-calculator.html">Simplified ROI</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://fireflies.ai/?fpr=ramadan-f8b4db" target="_blank" rel="noopener sponsored" class="btn-primary">Try Fireflies Free →</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero container">
+    <div class="trust-pill">● Sales, Recruiting & Remote Team Efficiency Benchmark</div>
+    <h1>
+      Fireflies.ai Pricing &<br />
+      <span class="gradient-text">Meeting Automation ROI Calculator</span>
+    </h1>
+    <p>
+      Calculate how much productive time your team reclaims by automating Zoom/Meet/Teams note-taking, action item extraction, and HubSpot/Salesforce CRM updates.
+    </p>
+  </section>
+
+  <main class="container">
+    <div class="calc-grid">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">Enter Your Team's Weekly Meeting Load</h2>
+            <p class="card-subtitle">Each 1-hour meeting typically requires 18–25 minutes of manual notes, recap emails, and CRM logging.</p>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span>Number of Team Members on Calls</span>
+            <span id="ffTeamVal" class="control-value">5 members</span>
+          </div>
+          <input type="range" id="ffTeam" min="1" max="50" step="1" value="5" />
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span>Meetings Per Person Per Week</span>
+            <span id="ffMeetingsVal" class="control-value">10 calls/wk</span>
+          </div>
+          <input type="range" id="ffMeetings" min="2" max="30" step="1" value="10" />
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span>Average Hourly Compensation ($ USD)</span>
+            <span id="ffHourlyVal" class="control-value">$45/hr</span>
+          </div>
+          <input type="range" id="ffHourly" min="15" max="150" step="5" value="45" />
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="result-highlight">
+          <div class="result-label">Annual Productivity Value Reclaimed</div>
+          <div id="ffAnnualSaved" class="result-big-number">$34,476/yr</div>
+          <p class="result-subtext">
+            Net time savings after deducting Fireflies.ai Pro ($10/seat/month).
+          </p>
+        </div>
+
+        <div class="metrics-row">
+          <div class="metric-box">
+            <div class="metric-box-label">Hours Saved Per Month</div>
+            <div id="ffHoursMo" class="metric-box-val" style="color:#34d399;">65 hrs/mo</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-box-label">Fireflies Software Cost</div>
+            <div id="ffPlanCost" class="metric-box-val" style="color:#93c5fd;">$50/mo</div>
+          </div>
+        </div>
+
+        <div class="rec-card" style="border-color:var(--accent-emerald);">
+          <div class="rec-top">
+            <span class="rec-title">Fireflies.ai — #1 AI Meeting Notetaker & Conversation Intelligence</span>
+            <span class="rec-badge">Free Forever Tier</span>
+          </div>
+          <p class="rec-desc">95%+ accuracy transcription across 100+ languages, instant AI summaries, AskFred meeting search, and automatic CRM logging for Zoom, Google Meet, and MS Teams.</p>
+          <div class="rec-footer">
+            <span class="rec-price">Free Tier • Pro From $10/mo</span>
+            <a href="https://fireflies.ai/?fpr=ramadan-f8b4db" target="_blank" rel="noopener sponsored" class="btn-primary">Start Free with Fireflies →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><strong>⚡ AIROI.dev</strong> — <a href="index.html" style="color:#34d399;">Back to All 4 AI ROI Calculators</a></div>
+      <div>2026 Independent AI Pricing Benchmarks</div>
+    </div>
+  </footer>
+
+  <script>
+    const ffTeam = document.getElementById("ffTeam");
+    const ffMeetings = document.getElementById("ffMeetings");
+    const ffHourly = document.getElementById("ffHourly");
+    function calcFf() {
+      const team = parseInt(ffTeam.value, 10);
+      const calls = parseInt(ffMeetings.value, 10);
+      const rate = parseInt(ffHourly.value, 10);
+      // 18 mins (0.3 hrs) saved per call on notes + CRM entry
+      const hrsMo = Math.round(team * calls * 4.33 * 0.3);
+      const softwareMo = team * 10;
+      const netMo = Math.max(0, hrsMo * rate - softwareMo);
+      document.getElementById("ffTeamVal").textContent = `${team} members`;
+      document.getElementById("ffMeetingsVal").textContent = `${calls} calls/wk`;
+      document.getElementById("ffHourlyVal").textContent = `$${rate}/hr`;
+      document.getElementById("ffHoursMo").textContent = `${hrsMo} hrs/mo`;
+      document.getElementById("ffPlanCost").textContent = `$${softwareMo}/mo`;
+      document.getElementById("ffAnnualSaved").textContent = `$${(netMo * 12).toLocaleString()}/yr`;
+    }
+    [ffTeam, ffMeetings, ffHourly].forEach(el => el.addEventListener("input", calcFf));
+    calcFf();
+  </script>
+</body>
+</html>
