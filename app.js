@@ -92,8 +92,8 @@
     // Render top affiliate recommendations for Tool 1
     const recContainer = document.getElementById("subRecommendations");
     recContainer.innerHTML = [
-      renderRecCard(partners.customgpt, "Top Pick: Replace Team AI Seats with 1 Custom Bot"),
-      renderRecCard(partners.fireflies, "Automate Meeting Notes & CRM Data Entry"),
+      renderRecCard(partners.simplified, "Best All-in-One: Replace 5 AI Subscriptions ($14/mo)"),
+      renderRecCard(partners.customgpt, "Top B2B Pick: Replace Team AI Seats with 1 Custom Bot"),
       renderRecCard(partners.submagic, "Save 90% on AI Video Editing & Captions")
     ].join("");
   }
@@ -233,13 +233,13 @@
 
     let picks = [];
     if (goal === "automation") {
-      picks = [partners.customgpt, partners.fireflies, partners.submagic];
+      picks = [partners.customgpt, partners.fireflies, partners.simplified];
     } else if (goal === "content") {
-      picks = [partners.submagic, partners.heygen, partners.writesonic];
+      picks = [partners.submagic, partners.simplified, partners.heygen];
     } else if (goal === "support") {
-      picks = [partners.customgpt, partners.fireflies, partners.synthflow];
+      picks = [partners.customgpt, partners.fireflies, partners.simplified];
     } else {
-      picks = [partners.customgpt, partners.fireflies, partners.openrouter];
+      picks = [partners.customgpt, partners.simplified, partners.fireflies];
     }
 
     const container = document.getElementById("quizResultsContainer");
