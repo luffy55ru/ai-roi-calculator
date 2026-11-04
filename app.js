@@ -93,8 +93,8 @@
     const recContainer = document.getElementById("subRecommendations");
     recContainer.innerHTML = [
       renderRecCard(partners.customgpt, "Top Pick: Replace Team AI Seats with 1 Custom Bot"),
-      renderRecCard(partners.openrouter, "Cut Idle $20/mo Subscriptions"),
-      renderRecCard(partners.make, "Automate Prompts Instead of Manual Chat")
+      renderRecCard(partners.submagic, "Save 90% on AI Video Editing & Captions"),
+      renderRecCard(partners.openrouter, "Cut Idle $20/mo Subscriptions")
     ].join("");
   }
 
@@ -210,9 +210,9 @@
     document.getElementById("roiHoursReclaimed").textContent = `${hoursReclaimedMonth.toLocaleString()} hrs/mo`;
 
     document.getElementById("roiRecommendations").innerHTML = [
-      renderRecCard(partners.make, "Automate 1,800+ Apps Visually"),
-      renderRecCard(partners.synthflow, "Automate Inbound/Outbound Phone Calls"),
-      renderRecCard(partners.customgpt, "Automate 80% of Customer Support Tickets")
+      renderRecCard(partners.customgpt, "Automate 80% of Customer Support Tickets"),
+      renderRecCard(partners.submagic, "Automate Short-Form Video & Social Production"),
+      renderRecCard(partners.synthflow, "Automate Inbound/Outbound Phone Calls")
     ].join("");
   }
 
@@ -237,7 +237,7 @@
         ? [partners.n8n, partners.openrouter, partners.elevenlabs]
         : [partners.make, partners.customgpt, partners.synthflow];
     } else if (goal === "content") {
-      picks = [partners.heygen, partners.elevenlabs, partners.writesonic];
+      picks = [partners.submagic, partners.heygen, partners.writesonic];
     } else if (goal === "support") {
       picks = [partners.customgpt, partners.synthflow, partners.make];
     } else {

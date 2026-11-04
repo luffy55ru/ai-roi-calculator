@@ -54,6 +54,16 @@ window.AFFILIATE_CONFIG = {
       description: "Ultra-realistic AI voice cloning, dubbing, and low-latency conversational voice agents.",
       url: "https://elevenlabs.io/?from=partneraistack"
     },
+    submagic: {
+      name: "Submagic AI",
+      category: "AI Viral Video Shorts & Captions",
+      badge: "Top Creator ROI",
+      commissionInfo: "30% Lifetime Recurring",
+      priceText: "Free trial / From $16/mo",
+      discountText: "Create 3 Viral Shorts Free",
+      description: "Replace $1,500/mo video editors with AI auto-captions, Magic B-Roll, zoom cuts, and viral hooks in 60 seconds.",
+      url: "https://submagic.co/?via=ramadan-319dd7"
+    },
     heygen: {
       name: "Pictory AI",
       category: "AI Video & Content Repurposing",
