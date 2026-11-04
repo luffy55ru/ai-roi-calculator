@@ -55,14 +55,14 @@ window.AFFILIATE_CONFIG = {
       url: "https://elevenlabs.io/?from=partneraistack"
     },
     heygen: {
-      name: "HeyGen",
-      category: "AI Video & Avatars",
+      name: "Pictory AI",
+      category: "AI Video & Content Repurposing",
       badge: "Top Video ROI",
-      commissionInfo: "20% Recurring for 12 Months",
-      priceText: "Free tier / From $24/mo",
-      discountText: "Create 3 Videos Free",
-      description: "Replace $2,000 studio shoots with studio-quality AI avatars, video localization, and outreach.",
-      url: "https://heygen.com/?sid=rewardful&via=aistackcalc"
+      commissionInfo: "20%-50% Recurring Commission",
+      priceText: "Free trial / From $19/mo",
+      discountText: "Start Free Video Trial",
+      description: "Turn blog posts, scripts, and long-form recordings into high-converting social videos automatically.",
+      url: "https://pictory.ai/"
     },
     openrouter: {
       name: "OpenRouter / Pay-Per-Token UI",
