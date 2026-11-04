@@ -93,8 +93,8 @@
     const recContainer = document.getElementById("subRecommendations");
     recContainer.innerHTML = [
       renderRecCard(partners.customgpt, "Top Pick: Replace Team AI Seats with 1 Custom Bot"),
-      renderRecCard(partners.submagic, "Save 90% on AI Video Editing & Captions"),
-      renderRecCard(partners.openrouter, "Cut Idle $20/mo Subscriptions")
+      renderRecCard(partners.fireflies, "Automate Meeting Notes & CRM Data Entry"),
+      renderRecCard(partners.submagic, "Save 90% on AI Video Editing & Captions")
     ].join("");
   }
 
@@ -170,8 +170,8 @@
       .join("");
 
     document.getElementById("apiRecommendations").innerHTML = [
-      renderRecCard(partners.n8n, "Connect Any LLM API into an Agent"),
-      renderRecCard(partners.customgpt, "Zero-Maintenance RAG Without Raw API Hassle")
+      renderRecCard(partners.customgpt, "Zero-Maintenance RAG Without Raw API Hassle"),
+      renderRecCard(partners.fireflies, "Automated Voice-to-CRM Intelligence")
     ].join("");
   }
 
@@ -211,8 +211,8 @@
 
     document.getElementById("roiRecommendations").innerHTML = [
       renderRecCard(partners.customgpt, "Automate 80% of Customer Support Tickets"),
-      renderRecCard(partners.submagic, "Automate Short-Form Video & Social Production"),
-      renderRecCard(partners.synthflow, "Automate Inbound/Outbound Phone Calls")
+      renderRecCard(partners.fireflies, "Automate Sales Calls, Notes & Action Items"),
+      renderRecCard(partners.submagic, "Automate Short-Form Video & Social Production")
     ].join("");
   }
 
@@ -233,15 +233,13 @@
 
     let picks = [];
     if (goal === "automation") {
-      picks = skill === "developer"
-        ? [partners.n8n, partners.openrouter, partners.elevenlabs]
-        : [partners.make, partners.customgpt, partners.synthflow];
+      picks = [partners.customgpt, partners.fireflies, partners.submagic];
     } else if (goal === "content") {
       picks = [partners.submagic, partners.heygen, partners.writesonic];
     } else if (goal === "support") {
-      picks = [partners.customgpt, partners.synthflow, partners.make];
+      picks = [partners.customgpt, partners.fireflies, partners.synthflow];
     } else {
-      picks = [partners.openrouter, partners.n8n, partners.writesonic];
+      picks = [partners.customgpt, partners.fireflies, partners.openrouter];
     }
 
     const container = document.getElementById("quizResultsContainer");

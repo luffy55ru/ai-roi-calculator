@@ -44,6 +44,16 @@ window.AFFILIATE_CONFIG = {
       description: "Deploy anti-hallucination AI customer support & internal knowledge bots trained on your docs in 5 minutes.",
       url: "https://customgpt.ai/?fpr=ramadan-bf3619"
     },
+    fireflies: {
+      name: "Fireflies.ai",
+      category: "AI Meeting & Voice Automation",
+      badge: "Saves 8+ Hrs/Wk",
+      commissionInfo: "Recurring Affiliate Partner",
+      priceText: "Free tier / From $10/mo",
+      discountText: "Start Free Meeting Bot",
+      description: "Automatically record, transcribe, summarize, and extract action items from Zoom, Meet, and Teams calls into your CRM.",
+      url: "https://fireflies.ai/?fpr=ramadan-f8b4db"
+    },
     elevenlabs: {
       name: "ElevenLabs",
       category: "AI Voice & Conversational Agents",
