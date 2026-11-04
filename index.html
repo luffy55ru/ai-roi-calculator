@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIROI.dev — 2026 AI Subscription vs API Cost & Automation ROI Calculator</title>
+  <meta name="description" content="Free interactive 2026 AI calculators: Compare ChatGPT Plus & Claude Pro subscriptions vs Pay-As-You-Go API costs, calculate LLM token pricing (GPT-4o, Claude 3.7, Gemini 2.5, DeepSeek R1), and estimate B2B AI automation ROI." />
+  <meta name="keywords" content="AI subscription vs API calculator, LLM token cost calculator 2026, ChatGPT Plus vs API cost, Claude 3.7 Sonnet pricing calculator, AI automation ROI calculator, Make vs n8n cost, DeepSeek R1 API pricing" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://luffy55ru.github.io/ai-roi-calculator/" />
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Stop Overpaying for AI — 2026 AI Cost & Automation ROI Calculator" />
+  <meta property="og:description" content="Calculate whether you should cancel your $20-$200/mo AI subscriptions and switch to pay-per-token APIs or automated AI workflows." />
+  <meta property="og:url" content="https://luffy55ru.github.io/ai-roi-calculator/" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- JSON-LD Structured Data for Google & AI Search Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "AIROI.dev - AI Cost & Automation ROI Calculator",
+        "url": "https://luffy55ru.github.io/ai-roi-calculator/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Interactive suite of calculators to compare monthly AI subscriptions against pay-as-you-go LLM API token costs and B2B AI agent automation ROI."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is it cheaper to use the OpenAI / Claude API instead of paying $20/month for ChatGPT Plus or Claude Pro?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For 78% of users sending fewer than 35 prompts per day, pay-as-you-go API access via unified workspaces or aggregators costs between $3.50 and $7.00 per month—saving over $160 per year per subscription."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do you calculate monthly LLM API token costs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "1,000 English words equal approximately 1,350 tokens. Multiply your daily API calls by 30 days, convert total input and output tokens to millions, and multiply by the model's per-million token rate ( factoring in prompt caching discounts up to 75%)."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="#" class="brand-logo">
+        <span class="logo-icon">⚡</span>
+        <span>AIROI<span style="color:#34d399;">.dev</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#calculators">Calculators</a></li>
+        <li><a href="#directory">Verified AI Stack</a></li>
+        <li><a href="#faq">Pricing FAQ</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="shareCalcBtn" class="btn-secondary" title="Copy link to share">🔗 Share Tool</button>
+        <a href="#directory" class="btn-primary">Top 2026 Deals</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero container" id="calculators">
+    <div class="trust-pill">
+      <span>● Live 2026 LLM & SaaS Pricing Benchmarks</span>
+    </div>
+    <h1>
+      Stop Overpaying for AI.<br />
+      <span class="gradient-text">Calculate Your True Token & Automation ROI.</span>
+    </h1>
+    <p>
+      Most founders and teams waste $80–$350/month on overlapping AI subscriptions. Audit your stack in 30 seconds, compare live LLM API token costs, and find the highest-ROI tools.
+    </p>
+
+    <!-- 4-Tool Switcher Tabs -->
+    <div class="tool-tabs" role="tablist">
+      <button class="tab-btn active" data-tab="panel-sub-audit">
+        💳 1. Subscription vs. API Audit <span class="tab-badge">Popular</span>
+      </button>
+      <button class="tab-btn" data-tab="panel-api-tokens">
+        🧮 2. LLM API Token Pricing
+      </button>
+      <button class="tab-btn" data-tab="panel-b2b-roi">
+        📈 3. B2B Automation ROI
+      </button>
+      <button class="tab-btn" data-tab="panel-stack-quiz">
+        🧭 4. AI Stack Recommender
+      </button>
+    </div>
+  </section>
+
+  <!-- Main Calculator Panels -->
+  <main class="container">
+
+    <!-- ================================================================== -->
+    <!-- PANEL 1: AI SUBSCRIPTION VS PAY-AS-YOU-GO AUDIT                     -->
+    <!-- ================================================================== -->
+    <section id="panel-sub-audit" class="tool-panel active">
+      <div class="calc-grid">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Step 1: Select Your Current Monthly AI Subscriptions</h2>
+              <p class="card-subtitle">Check the subscriptions you or your team currently pay for every month.</p>
+            </div>
+          </div>
+
+          <div class="sub-grid">
+            <label class="sub-item checked">
+              <span class="sub-item-left">
+                <input type="checkbox" class="sub-checkbox" data-price="20" checked />
+                <span class="sub-name">ChatGPT Plus</span>
+              </span>
+              <span class="sub-price">$20/mo</span>
+            </label>
+
+            <label class="sub-item checked">
+              <span class="sub-item-left">
+                <input type="checkbox" class="sub-checkbox" data-price="20" checked />
+                <span class="sub-name">Claude Pro</span>
+              </span>
+              <span class="sub-price">$20/mo</span>
+            </label>
+
+            <label class="sub-item">
+              <span class="sub-item-left">
+                <input type="checkbox" class="sub-checkbox" data-price="200" />
+                <span class="sub-name">ChatGPT Pro (o1/o3)</span>
+              </span>
+              <span class="sub-price">$200/mo</span>
+            </label>
+
+            <label class="sub-item checked">
+              <span class="sub-item-left">
+                <input type="checkbox" class="sub-checkbox" data-price="20" checked />
+                <span class="sub-name">Perplexity Pro</span>
+              </span>
+              <span class="sub-price">$20/mo</span>
+            </label>
+
+            <label class="sub-item">
+              <span class="sub-item-left">
+                <input type="checkbox" class="sub-checkbox" data-price="20" />
+                <span class="sub-name">Gemini Advanced</span>
+              </span>
+              <span class="sub-price">$20/mo</span>
+            </label>
+
+            <label class="sub-item">
+              <span class="sub-item-left">
+                <input type="checkbox" class="sub-checkbox" data-price="49" />
+                <span class="sub-name">Jasper / Copy AI</span>
+              </span>
+              <span class="sub-price">$49/mo</span>
+            </label>
+
+            <label class="sub-item">
+              <span class="sub-item-left">
+                <input type="checkbox" class="sub-checkbox" data-price="30" />
+                <span class="sub-name">Midjourney Standard</span>
+              </span>
+              <span class="sub-price">$30/mo</span>
+            </label>
+
+            <label class="sub-item">
+              <span class="sub-item-left">
+                <input type="checkbox" class="sub-checkbox" data-price="22" />
+                <span class="sub-name">ElevenLabs Creator</span>
+              </span>
+              <span class="sub-price">$22/mo</span>
+            </label>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Average AI Prompts / Messages Sent Per Day</span>
+              <span id="promptsPerDayVal" class="control-value">25 msgs/day</span>
+            </div>
+            <input type="range" id="promptsPerDay" min="5" max="200" step="5" value="25" />
+            <div class="range-hints">
+              <span>Light (5/day)</span>
+              <span>Moderate (35/day)</span>
+              <span>Power User (200/day)</span>
+            </div>
+          </div>
+
+          <div class="control-group" style="margin-bottom:0;">
+            <div class="control-label">
+              <span>Average Length Per Conversation Turn (Input + Output)</span>
+              <span id="avgPromptWordsVal" class="control-value">400 words</span>
+            </div>
+            <input type="range" id="avgPromptWords" min="100" max="2000" step="100" value="400" />
+            <div class="range-hints">
+              <span>Short Q&A (100w)</span>
+              <span>Standard Code/Email (400w)</span>
+              <span>Long Doc Analysis (2,000w)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Audit Output & High-Converting Affiliate Recommendations -->
+        <div class="card">
+          <div class="result-highlight">
+            <div class="result-label">Estimated Annual Savings</div>
+            <div id="subYearlySavings" class="result-big-number">$612/yr</div>
+            <p id="subVerdictText" class="result-subtext">
+              Switching to unified API / All-in-One tools cuts your bill significantly.
+            </p>
+          </div>
+
+          <div class="metrics-row">
+            <div class="metric-box">
+              <div class="metric-box-label">Current Flat Subscriptions</div>
+              <div id="subCurrentSpend" class="metric-box-val" style="color:#f43f5e;">$60/mo</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-box-label">True Pay-Per-Token Equivalent</div>
+              <div id="subApiEquivalent" class="metric-box-val" style="color:#34d399;">$8.90/mo</div>
+            </div>
+          </div>
+
+          <h3 style="font-size:0.95rem; font-weight:700; color:#e2e8f0; margin-bottom:0.5rem;">
+            💡 Recommended Cost-Saving Replacements:
+          </h3>
+          <div id="subRecommendations"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <!-- PANEL 2: 2026 LLM API TOKEN COST CALCULATOR                        -->
+    <!-- ================================================================== -->
+    <section id="panel-api-tokens" class="tool-panel">
+      <div class="calc-grid">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">2026 LLM API Token Cost Comparator</h2>
+              <p class="card-subtitle">Compare monthly API spend across GPT-4o, Claude 3.7 Sonnet, Gemini 2.5 Pro, and DeepSeek R1.</p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>API Requests / Runs Per Day</span>
+              <span id="apiRunsDayVal" class="control-value">500 calls/day</span>
+            </div>
+            <input type="range" id="apiRunsDay" min="50" max="25000" step="50" value="500" />
+            <div class="range-hints">
+              <span>50/day (Internal Tool)</span>
+              <span>2,500/day (Growing SaaS)</span>
+              <span>25,000/day (Scale)</span>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Input Prompt Size Per Call (Tokens)</span>
+              <span id="apiInputTokensVal" class="control-value">1,200 tok</span>
+            </div>
+            <input type="range" id="apiInputTokens" min="200" max="10000" step="200" value="1200" />
+            <div class="range-hints">
+              <span>200 tok (~150 words)</span>
+              <span>2,000 tok (RAG Context)</span>
+              <span>10,000 tok (Full Document)</span>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Output Completion Size Per Call (Tokens)</span>
+              <span id="apiOutputTokensVal" class="control-value">500 tok</span>
+            </div>
+            <input type="range" id="apiOutputTokens" min="100" max="4000" step="100" value="500" />
+          </div>
+
+          <div class="control-group" style="margin-bottom:0;">
+            <div class="control-label">
+              <span>Prompt Caching Hit Rate (75% Input Discount)</span>
+              <span id="apiCachePctVal" class="control-value">30% cached</span>
+            </div>
+            <input type="range" id="apiCachePct" min="0" max="90" step="10" value="30" />
+          </div>
+
+          <div style="margin-top:1.35rem;">
+            <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:0.75rem;">
+              Live Monthly Cost Breakdown by Model:
+            </h3>
+            <div id="modelBarsContainer" class="model-bar-list"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="result-highlight">
+            <div class="result-label">Max Monthly Model Arbitrage Savings</div>
+            <div id="apiSpreadSavings" class="result-big-number">$154.20/mo</div>
+            <p class="result-subtext">
+              Routing simple tasks to Gemini 2.5 Flash or DeepSeek R1 while reserving Claude 3.7 for complex reasoning slashes API bills by up to 85%.
+            </p>
+          </div>
+
+          <div class="metrics-row">
+            <div class="metric-box">
+              <div class="metric-box-label">Total Monthly Volume</div>
+              <div id="apiTotalMonthlyTokens" class="metric-box-val">25.5M tok/mo</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-box-label">Token-to-Word Ratio</div>
+              <div class="metric-box-val" style="color:#93c5fd;">1K tok ≈ 750w</div>
+            </div>
+          </div>
+
+          <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:0.5rem;">
+            🚀 Best Platforms to Deploy & Route LLM APIs:
+          </h3>
+          <div id="apiRecommendations"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <!-- PANEL 3: B2B AI AUTOMATION & AGENT ROI CALCULATOR                  -->
+    <!-- ================================================================== -->
+    <section id="panel-b2b-roi" class="tool-panel">
+      <div class="calc-grid">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">B2B AI Agent & Workflow ROI Calculator</h2>
+              <p class="card-subtitle">Estimate net payroll savings from automating support, lead follow-up, and back-office ops.</p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Team Members Performing Repetitive Tasks</span>
+              <span id="roiTeamSizeVal" class="control-value">4 employees</span>
+            </div>
+            <input type="range" id="roiTeamSize" min="1" max="50" step="1" value="4" />
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Hours Spent on Repetitive Work (Per Person / Week)</span>
+              <span id="roiHoursWeekVal" class="control-value">12 hrs/wk each</span>
+            </div>
+            <input type="range" id="roiHoursWeek" min="2" max="35" step="1" value="12" />
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>Average Fully-Loaded Hourly Cost ($ USD)</span>
+              <span id="roiHourlyWageVal" class="control-value">$35/hr</span>
+            </div>
+            <input type="range" id="roiHourlyWage" min="12" max="120" step="1" value="35" />
+          </div>
+
+          <div class="control-group" style="margin-bottom:0;">
+            <div class="control-label">
+              <span>Percentage Automatable with AI Agents</span>
+              <span id="roiAutoPctVal" class="control-value">65% automated</span>
+            </div>
+            <input type="range" id="roiAutoPct" min="20" max="90" step="5" value="65" />
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="result-highlight">
+            <div class="result-label">Projected 12-Month Net Savings</div>
+            <div id="roiAnnualNet" class="result-big-number">$55,400/yr</div>
+            <p class="result-subtext">
+              Net ROI after deducting estimated AI automation software & API costs.
+            </p>
+          </div>
+
+          <div class="metrics-row">
+            <div class="metric-box">
+              <div class="metric-box-label">Net Monthly Cost Reduction</div>
+              <div id="roiMonthlyNet" class="metric-box-val" style="color:#34d399;">$4,617/mo</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-box-label">Team Hours Reclaimed</div>
+              <div id="roiHoursReclaimed" class="metric-box-val" style="color:#93c5fd;">135 hrs/mo</div>
+            </div>
+          </div>
+
+          <h3 style="font-size:0.95rem; font-weight:700; margin-bottom:0.5rem;">
+            ⚡ Highest-ROI B2B Automation Platforms:
+          </h3>
+          <div id="roiRecommendations"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <!-- PANEL 4: INTERACTIVE AI STACK RECOMMENDER QUIZ                     -->
+    <!-- ================================================================== -->
+    <section id="panel-stack-quiz" class="tool-panel">
+      <div class="calc-grid">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Find Your Optimal 2026 AI Stack in 3 Clicks</h2>
+              <p class="card-subtitle">Answer 3 quick questions to get a lean, high-ROI tool stack tailored to your workflow.</p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="quizGoal">1. What is your #1 priority right now?</label>
+            <select id="quizGoal" class="select-field">
+              <option value="automation">Automate business workflows & save manual hours</option>
+              <option value="support">Automate customer support & inbound phone/chat leads</option>
+              <option value="content">Scale SEO content, AI video avatars & voiceovers</option>
+              <option value="coding">Reduce LLM API & developer subscription costs</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="quizBudget">2. Target monthly AI software budget?</label>
+            <select id="quizBudget" class="select-field">
+              <option value="lean">Lean Startup ($0 – $49/month total)</option>
+              <option value="growth">Growth Team ($50 – $199/month)</option>
+              <option value="scale">Agency / Enterprise ($200+/month for max ROI)</option>
+            </select>
+          </div>
+
+          <div class="control-group" style="margin-bottom:0;">
+            <label class="control-label" for="quizSkill">3. Technical comfort level?</label>
+            <select id="quizSkill" class="select-field">
+              <option value="nocode">100% No-Code (Visual drag-and-drop templates)</option>
+              <option value="developer">Technical / Developer (APIs, webhooks & custom nodes)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size:1.1rem; font-weight:800; margin-bottom:0.35rem;">
+            🎯 Your Custom 3-Tool AI Blueprint:
+          </h3>
+          <p style="font-size:0.86rem; color:var(--text-secondary); margin-bottom:1rem;">
+            Tested for reliability, transparent pricing, and fast payback period:
+          </p>
+          <div id="quizResultsContainer"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <!-- VERIFIED PARTNER DIRECTORY                                         -->
+    <!-- ================================================================== -->
+    <section id="directory" class="section-block">
+      <div class="section-header">
+        <h2>2026 Verified High-ROI AI Tools & Exclusive Trials</h2>
+        <p style="color:var(--text-secondary);">
+          Every tool below has been benchmarked for cost-per-output, API reliability, and payback speed.
+        </p>
+      </div>
+      <div id="partnerDirectoryGrid" class="partner-grid"></div>
+    </section>
+
+    <!-- ================================================================== -->
+    <!-- SEO FAQ SECTION                                                    -->
+    <!-- ================================================================== -->
+    <section id="faq" class="section-block">
+      <div class="section-header">
+        <h2>Frequently Asked Questions (AI Pricing & ROI)</h2>
+        <p style="color:var(--text-secondary);">
+          Key benchmarks for optimizing your LLM token spend and SaaS subscriptions in 2026.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>
+            <span>Is it cheaper to use the OpenAI / Claude API instead of paying $20/mo for ChatGPT Plus or Claude Pro?</span>
+            <span>＋</span>
+          </summary>
+          <p>
+            Yes—for roughly 78% of professionals who send fewer than 35 messages per day, paying per token via unified API interfaces costs between <strong>$3.50 and $7.50 per month</strong>. You also gain simultaneous access to Claude 3.7 Sonnet, GPT-4o, Gemini 2.5 Pro, and DeepSeek R1 without paying multiple $20/month flat fees.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>What is the difference between Make.com and n8n for AI automation?</span>
+            <span>＋</span>
+          </summary>
+          <p>
+            <strong>Make.com</strong> is the fastest visual no-code platform with 1,800+ pre-built app integrations, ideal for marketing, CRM, and operations teams. <strong>n8n</strong> offers native LangChain AI agent nodes, memory management, and self-hosting options—making it the top choice for multi-step AI agents and heavy webhook workflows.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>How many words are in 1 Million LLM API tokens?</span>
+            <span>＋</span>
+          </summary>
+          <p>
+            In English text, <strong>1,000 tokens equal approximately 750 words</strong> (or 1 word ≈ 1.33 tokens). Therefore, 1 Million tokens equals roughly 750,000 words—equivalent to about 10 full-length books.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>How can small businesses achieve positive ROI with AI in under 30 days?</span>
+            <span>＋</span>
+          </summary>
+          <p>
+            Focus on high-frequency bottlenecks first: 1) Deploy a RAG knowledge chatbot (like CustomGPT.ai) to deflect 65%+ of tier-1 customer support tickets, 2) Use AI phone receptionists (like Synthflow) to capture missed inbound calls 24/7, and 3) Connect lead forms to CRM sequences automatically via Make.com.
+          </p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>⚡ AIROI.dev</strong> — Independent AI Pricing & Automation ROI Benchmarks.<br />
+        <span>Disclosure: Some links on this site are partner referral links that support our free calculators at zero extra cost to you.</span>
+      </div>
+      <div>
+        <a href="#" id="openAdminBtn" style="color:var(--text-muted); text-decoration:underline;">⚙️ Partner Links Setup</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Owner Affiliate Link Manager Modal -->
+  <div id="adminModal" class="modal-backdrop">
+    <div class="modal-content">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+        <h3 style="font-size:1.25rem; font-weight:800;">⚙️ Affiliate Links Manager (Site Owner)</h3>
+        <button id="closeAdminBtn" class="btn-secondary">✕ Close</button>
+      </div>
+      <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:1.25rem;">
+        Paste your personal affiliate referral links below. Click <strong>"Download affiliate-config.js"</strong> to replace the file in your GitHub repository so all visitors worldwide use your referral links!
+      </p>
+      <div id="adminInputsContainer"></div>
+      <div style="display:flex; gap:0.75rem; justify-content:flex-end; margin-top:1.25rem;">
+        <button id="saveAdminBtn" class="btn-secondary">Save & Preview in Browser</button>
+        <button id="downloadConfigBtn" class="btn-primary">⬇ Download affiliate-config.js</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="affiliate-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

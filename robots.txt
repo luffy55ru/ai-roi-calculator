@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://luffy55ru.github.io/ai-roi-calculator/sitemap.xml
