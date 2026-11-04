@@ -38,11 +38,11 @@ window.AFFILIATE_CONFIG = {
       name: "CustomGPT.ai",
       category: "Enterprise RAG & Chatbots",
       badge: "Highest Accuracy RAG",
-      commissionInfo: "20% Recurring up to $300/sale",
+      commissionInfo: "15%-20% Recurring for 24 Months",
       priceText: "From $89/mo",
       discountText: "Free 7-Day Trial",
       description: "Deploy anti-hallucination AI customer support & internal knowledge bots trained on your docs in 5 minutes.",
-      url: "https://customgpt.ai/?fpr=aistackcalc"
+      url: "https://customgpt.ai/?fpr=ramadan-bf3619"
     },
     elevenlabs: {
       name: "ElevenLabs",

@@ -92,8 +92,8 @@
     // Render top affiliate recommendations for Tool 1
     const recContainer = document.getElementById("subRecommendations");
     recContainer.innerHTML = [
+      renderRecCard(partners.customgpt, "Top Pick: Replace Team AI Seats with 1 Custom Bot"),
       renderRecCard(partners.openrouter, "Cut Idle $20/mo Subscriptions"),
-      renderRecCard(partners.writesonic, "Best All-in-One Chat + SEO Bundle"),
       renderRecCard(partners.make, "Automate Prompts Instead of Manual Chat")
     ].join("");
   }
