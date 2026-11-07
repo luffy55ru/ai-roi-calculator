@@ -235,7 +235,7 @@
     if (goal === "automation") {
       picks = [partners.customgpt, partners.fireflies, partners.simplified];
     } else if (goal === "content") {
-      picks = [partners.submagic, partners.simplified, partners.heygen];
+      picks = [partners.submagic, partners.submagic_subtitles, partners.simplified];
     } else if (goal === "support") {
       picks = [partners.customgpt, partners.fireflies, partners.simplified];
     } else {

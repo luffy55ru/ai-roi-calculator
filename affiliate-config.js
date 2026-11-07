@@ -54,45 +54,15 @@ window.AFFILIATE_CONFIG = {
       description: "One unified AI workspace replacing separate subscriptions for ChatGPT, Canva Pro, video editing, and social scheduling.",
       url: "https://simplified.com?fpr=ramadan-b1d241"
     },
-    writesonic: {
-      name: "Writesonic + Chatsonic",
-      category: "SEO & Multi-Model Workspace",
-      badge: "All-in-One Marketing",
+    submagic_subtitles: {
+      name: "Submagic Auto-Subtitle Generator",
+      category: "AI Captions & Multi-Language Subtitles",
+      badge: "99% Word Accuracy",
       commissionInfo: "30% Lifetime Recurring",
-      priceText: "Free tier / From $16/mo",
-      discountText: "Save 60% vs Separate Tools",
-      description: "Replaces ChatGPT Plus + SEO tools + AI article writer with real-time Google Search data.",
-      url: "https://writesonic.com/?via=aistackcalc"
-    },
-    heygen: {
-      name: "Pictory AI",
-      category: "AI Video & Content Repurposing",
-      badge: "Top Video ROI",
-      commissionInfo: "20%-50% Recurring Commission",
-      priceText: "Free trial / From $19/mo",
-      discountText: "Start Free Video Trial",
-      description: "Turn blog posts, scripts, and long-form recordings into high-converting social videos automatically.",
-      url: "https://pictory.ai/"
-    },
-    synthflow: {
-      name: "Synthflow AI",
-      category: "AI Phone & Receptionist Agents",
-      badge: "High-Ticket B2B",
-      commissionInfo: "25% Recurring Commission",
-      priceText: "From $29/mo",
-      discountText: "Try AI Voice Receptionist",
-      description: "Automate inbound & outbound sales calls 24/7 with human-like AI phone agents integrated with HubSpot & GoHighLevel.",
-      url: "https://synthflow.ai/?via=aistackcalc"
-    },
-    openrouter: {
-      name: "OpenRouter / Pay-Per-Token UI",
-      category: "Unified LLM API Aggregator",
-      badge: "Save up to 78%",
-      commissionInfo: "High Conversion Utility",
-      priceText: "Pay-As-You-Go ($0/mo base)",
-      discountText: "Switch from $20/mo Subscriptions",
-      description: "Access Claude 3.7, GPT-4o, Gemini 2.5 Pro, and DeepSeek R1 through one API & chat interface paying only per token.",
-      url: "https://openrouter.ai/"
+      priceText: "Free tool / From $16/mo",
+      discountText: "Generate Subtitles Free",
+      description: "Automatically generate animated word-by-word captions in 48+ languages for TikTok, Reels, and YouTube Shorts.",
+      url: "https://www.submagic.co/auto-subtitle-generator?via=ramadan-319dd7"
     }
   }
 };
