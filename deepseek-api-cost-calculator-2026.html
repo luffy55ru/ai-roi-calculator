@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="DAP5OxbQWlkWg3E-838aTb4W8RP-yG6_Dae9UgvgcYU" />
+  <title>DeepSeek R1 & V3 API Cost Calculator (2026) — Save 85% vs OpenAI</title>
+  <meta name="description" content="Free DeepSeek R1 & V3 API Cost Calculator (2026). Compare DeepSeek R1 ($0.55/$2.19) and V3 ($0.27/$1.10) with context caching against OpenAI o3-mini, GPT-4o, and Claude 3.7 Sonnet." />
+  <link rel="canonical" href="https://luffy55ru.github.io/ai-roi-calculator/deepseek-api-cost-calculator-2026.html" />
+
+  <!-- Favicons for Google Search & Browsers -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the DeepSeek V3 and DeepSeek R1 API pricing per 1M tokens in 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "DeepSeek V3 (deepseek-chat) costs $0.27 per 1M input tokens (cache miss) and $1.10 per 1M output tokens. DeepSeek R1 (deepseek-reasoner) costs $0.55 per 1M input tokens (cache miss) and $2.19 per 1M reasoning/output tokens."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does DeepSeek API context cache hit pricing work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "DeepSeek automatically caches repeated prompt prefixes (such as system instructions, RAG chunks, and few-shot examples). Cache hit input tokens drop by roughly 75%: $0.07 per 1M tokens on DeepSeek V3 and $0.14 per 1M tokens on DeepSeek R1."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does DeepSeek R1 & V3 save compared to OpenAI o3-mini, GPT-4o, and Claude 3.7 Sonnet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Compared to OpenAI GPT-4o ($2.50/$10.00 per 1M tokens) and Claude 3.7 Sonnet ($3.00/$15.00 per 1M tokens), DeepSeek R1 typically reduces monthly API bills by 78% to 88%, while DeepSeek V3 cuts costs by 89% to 93%—and remains 50% to 75% cheaper than OpenAI o3-mini ($1.10/$4.40)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When should I use DeepSeek R1 vs DeepSeek V3 vs a managed RAG API?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use DeepSeek V3 for fast general chat, extraction, and coding; use DeepSeek R1 for complex math, planning, and multi-step reasoning where chain-of-thought tokens improve accuracy. For production customer support or document Q&A without building vector pipelines, a managed RAG API like CustomGPT.ai reduces engineering overhead."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="index.html" class="brand-logo">
+        <span class="logo-icon">⚡</span>
+        <span>AIROI<span style="color:#34d399;">.dev</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">All Calculators</a></li>
+        <li><a href="chatgpt-plus-vs-api-cost-calculator.html">ChatGPT vs API</a></li>
+        <li><a href="customgpt-pricing-and-roi-calculator.html">CustomGPT ROI</a></li>
+        <li><a href="fireflies-ai-roi-calculator.html">Fireflies ROI</a></li>
+        <li><a href="api-management-platform-roi-calculator.html">API ROI</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://customgpt.ai/?fpr=ramadan-bf3619" target="_blank" rel="noopener sponsored" class="btn-primary">Try CustomGPT API →</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero container">
+    <div class="trust-pill">● 2026 DeepSeek R1 / V3 vs OpenAI o3-mini, GPT-4o &amp; Claude 3.7</div>
+    <h1>
+      DeepSeek R1 &amp; V3 API Cost Calculator<br />
+      <span class="gradient-text">Save 85%+ vs OpenAI &amp; Claude (2026)</span>
+    </h1>
+    <p>
+      Model exact monthly API bills for <strong>DeepSeek R1 ($0.55/$2.19)</strong> and <strong>DeepSeek V3 ($0.27/$1.10)</strong> with context cache hits, and see live side-by-side savings against <strong>OpenAI o3-mini</strong>, <strong>GPT-4o</strong>, and <strong>Claude 3.7 Sonnet</strong>.
+    </p>
+  </section>
+
+  <main class="container">
+    <div class="calc-grid">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">Configure Your Token &amp; Cache Workload</h2>
+            <p class="card-subtitle">Select your DeepSeek model and tune monthly request &amp; token volume.</p>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="deepseekModel" class="control-label" style="margin-bottom:0.35rem;">
+            <span>Primary DeepSeek Model</span>
+            <span id="modelRateBadge" class="control-value">$0.55 / $2.19 per 1M</span>
+          </label>
+          <select id="deepseekModel" class="select-field">
+            <option value="r1" selected>DeepSeek R1 (deepseek-reasoner) — $0.55 in / $0.14 cached / $2.19 out</option>
+            <option value="v3">DeepSeek V3 (deepseek-chat) — $0.27 in / $0.07 cached / $1.10 out</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span>Monthly API Requests</span>
+            <span id="requestsVal" class="control-value">50,000 req/mo</span>
+          </div>
+          <input type="range" id="requests" min="1000" max="500000" step="1000" value="50000" />
+          <div class="range-hints">
+            <span>1,000 req</span>
+            <span>250,000 req</span>
+            <span>500,000 req</span>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span>Avg Input Tokens per Request</span>
+            <span id="inputTokensVal" class="control-value">3,000 tokens</span>
+          </div>
+          <input type="range" id="inputTokens" min="500" max="16000" step="250" value="3000" />
+          <div class="range-hints">
+            <span>500</span>
+            <span>8,000</span>
+            <span>16,000</span>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span>Avg Reasoning / Output Tokens per Request</span>
+            <span id="outputTokensVal" class="control-value">1,200 tokens</span>
+          </div>
+          <input type="range" id="outputTokens" min="200" max="8000" step="100" value="1200" />
+          <div class="range-hints">
+            <span>200</span>
+            <span>4,000</span>
+            <span>8,000</span>
+          </div>
+        </div>
+
+        <div class="control-group" style="margin-bottom:0.25rem;">
+          <div class="control-label">
+            <span>Context Cache Hit Rate (%)</span>
+            <span id="cacheRateVal" class="control-value">50% hits</span>
+          </div>
+          <input type="range" id="cacheRate" min="0" max="90" step="5" value="50" />
+          <div class="range-hints">
+            <span>0% (All Miss)</span>
+            <span>45%</span>
+            <span>90% (High Reuse)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="result-highlight">
+          <div id="selectedModelLabel" class="result-label">DeepSeek R1 Estimated Monthly Bill</div>
+          <div id="deepseekMonthlyCost" class="result-big-number">$183.15/mo</div>
+          <p id="savingsSummaryText" class="result-subtext">
+            Saves <strong>$7,382/yr (77.1%)</strong> vs OpenAI GPT-4o • <strong>150.0M</strong> input + <strong>60.0M</strong> output tokens/mo.
+          </p>
+        </div>
+
+        <div class="metrics-row">
+          <div class="metric-box">
+            <div class="metric-box-label">Saved vs OpenAI GPT-4o</div>
+            <div id="savedVsGpt4o" class="metric-box-val" style="color:#34d399;">$615.23/mo (77%)</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-box-label">Saved vs Claude 3.7 Sonnet</div>
+            <div id="savedVsClaude" class="metric-box-val" style="color:#93c5fd;">$964.35/mo (84%)</div>
+          </div>
+        </div>
+
+        <div class="model-bar-list" style="margin-bottom:1.1rem;">
+          <div class="model-bar-item">
+            <div class="model-bar-header">
+              <span>DeepSeek V3 <span style="color:var(--text-muted); font-weight:500;">($0.27 / $0.07 hit / $1.10)</span></span>
+              <span id="costV3" style="color:#34d399;">$91.50/mo</span>
+            </div>
+            <div class="model-bar-track">
+              <div id="barV3" class="model-bar-fill" style="width:8%;"></div>
+            </div>
+          </div>
+
+          <div class="model-bar-item">
+            <div class="model-bar-header">
+              <span>DeepSeek R1 <span style="color:var(--text-muted); font-weight:500;">($0.55 / $0.14 hit / $2.19)</span></span>
+              <span id="costR1" style="color:#6ee7b7;">$183.15/mo</span>
+            </div>
+            <div class="model-bar-track">
+              <div id="barR1" class="model-bar-fill" style="width:16%;"></div>
+            </div>
+          </div>
+
+          <div class="model-bar-item">
+            <div class="model-bar-header">
+              <span>OpenAI o3-mini <span style="color:var(--text-muted); font-weight:500;">($1.10 / $0.55 hit / $4.40)</span></span>
+              <span id="costO3Mini" style="color:#fbbf24;">$387.75/mo</span>
+            </div>
+            <div class="model-bar-track">
+              <div id="barO3Mini" class="model-bar-fill" style="width:34%; background:linear-gradient(90deg, #f59e0b, #fbbf24);"></div>
+            </div>
+          </div>
+
+          <div class="model-bar-item">
+            <div class="model-bar-header">
+              <span>OpenAI GPT-4o <span style="color:var(--text-muted); font-weight:500;">($2.50 / $1.25 hit / $10.00)</span></span>
+              <span id="costGpt4o" style="color:#fda4af;">$881.25/mo</span>
+            </div>
+            <div class="model-bar-track">
+              <div id="barGpt4o" class="model-bar-fill" style="width:77%; background:linear-gradient(90deg, #f43f5e, #fb7185);"></div>
+            </div>
+          </div>
+
+          <div class="model-bar-item">
+            <div class="model-bar-header">
+              <span>Claude 3.7 Sonnet <span style="color:var(--text-muted); font-weight:500;">($3.00 / $0.30 hit / $15.00)</span></span>
+              <span id="costClaude" style="color:#f43f5e;">$1,147.50/mo</span>
+            </div>
+            <div class="model-bar-track">
+              <div id="barClaude" class="model-bar-fill" style="width:100%; background:linear-gradient(90deg, #e11d48, #f43f5e);"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rec-card" style="border-color:var(--accent-emerald);">
+          <div class="rec-top">
+            <span class="rec-title">⚡ Skip Raw RAG Plumbing with CustomGPT.ai</span>
+            <span class="rec-badge">Managed RAG API</span>
+          </div>
+          <p class="rec-desc">Cut token waste and hallucination risk by pairing cheap reasoning APIs with CustomGPT.ai's hosted vector search, citation guardrails, and turnkey REST API.</p>
+          <div class="rec-footer">
+            <span class="rec-price">Starts $89/mo • 7-Day Free Trial</span>
+            <a href="https://customgpt.ai/?fpr=ramadan-bf3619" target="_blank" rel="noopener sponsored" class="btn-primary">Launch CustomGPT.ai →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section-block">
+      <div class="section-header">
+        <h2>Cut Operational &amp; Engineering Costs Beyond Raw Tokens</h2>
+        <p style="color:var(--text-secondary);">Lower LLM token bills are half the equation—automate RAG infrastructure and engineering meetings too.</p>
+      </div>
+      <div class="partner-grid">
+        <div class="rec-card" style="margin-top:0; border-color:var(--accent-emerald);">
+          <div class="rec-top">
+            <span class="rec-title">⚡ CustomGPT.ai API</span>
+            <span class="rec-badge">85% Faster Launch</span>
+          </div>
+          <p class="rec-desc">Deploy citation-backed enterprise Q&amp;A over 1,400+ file formats without maintaining chunking pipelines, embeddings, or prompt-caching proxies.</p>
+          <div class="rec-footer">
+            <span class="rec-price">Production RAG API</span>
+            <a href="https://customgpt.ai/?fpr=ramadan-bf3619" target="_blank" rel="noopener sponsored" class="btn-primary">Try CustomGPT.ai →</a>
+          </div>
+        </div>
+
+        <div class="rec-card" style="margin-top:0;">
+          <div class="rec-top">
+            <span class="rec-title">🎙️ Fireflies.ai</span>
+            <span class="rec-badge">AI Meeting Notes</span>
+          </div>
+          <p class="rec-desc">Automatically transcribe sprint planning, architecture reviews, and client calls into searchable action items—zero manual note-taking or custom Whisper pipelines.</p>
+          <div class="rec-footer">
+            <span class="rec-price">Free Tier Available</span>
+            <a href="https://fireflies.ai/?fpr=ramadan-f8b4db" target="_blank" rel="noopener sponsored" class="btn-primary">Try Fireflies.ai →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-header">
+        <h2>DeepSeek R1, V3 &amp; OpenAI 2026 Pricing FAQ</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>What is the DeepSeek V3 and DeepSeek R1 API pricing per 1M tokens in 2026? <span>+</span></summary>
+          <p>DeepSeek V3 (<code>deepseek-chat</code>) is priced at <strong>$0.27 per 1M input tokens</strong> (cache miss) and <strong>$1.10 per 1M output tokens</strong>. DeepSeek R1 (<code>deepseek-reasoner</code>) is priced at <strong>$0.55 per 1M input tokens</strong> (cache miss) and <strong>$2.19 per 1M output/reasoning tokens</strong>.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How does DeepSeek context cache hit pricing work? <span>+</span></summary>
+          <p>When requests share identical prompt prefixes (system prompts, tool schemas, or RAG context), DeepSeek automatically serves cached prefixes at ~75% off: <strong>$0.07/1M</strong> on DeepSeek V3 and <strong>$0.14/1M</strong> on DeepSeek R1. Raising cache hit rate from 0% to 70% can cut input spend dramatically on long-context workflows.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How does DeepSeek compare to OpenAI o3-mini, GPT-4o, and Claude 3.7 Sonnet? <span>+</span></summary>
+          <p>OpenAI o3-mini charges <strong>$1.10 / $4.40</strong> ($0.55 cached input), GPT-4o charges <strong>$2.50 / $10.00</strong> ($1.25 cached input), and Claude 3.7 Sonnet charges <strong>$3.00 / $15.00</strong> ($0.30 cached input) per 1M tokens. DeepSeek R1 is typically ~50% cheaper than o3-mini and ~78%–85% cheaper than GPT-4o and Claude 3.7 Sonnet.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-header">
+        <h2>Explore More AI ROI &amp; API Calculators</h2>
+      </div>
+      <div class="partner-grid">
+        <a href="chatgpt-plus-vs-api-cost-calculator.html" class="partner-card" style="text-decoration:none; color:inherit;">
+          <span class="rec-title">💳 ChatGPT Plus vs. API Calculator</span>
+          <p class="rec-desc" style="margin-top:0.5rem;">Compare $20/mo flat subscriptions vs pay-as-you-go API token costs.</p>
+          <span style="color:#34d399; font-weight:700; font-size:0.85rem;">Open Calculator →</span>
+        </a>
+        <a href="api-management-platform-roi-calculator.html" class="partner-card" style="text-decoration:none; color:inherit;">
+          <span class="rec-title">🛡️ API Management Platform ROI</span>
+          <p class="rec-desc" style="margin-top:0.5rem;">Calculate gateway engineering hours saved and LLM caching governance ROI.</p>
+          <span style="color:#34d399; font-weight:700; font-size:0.85rem;">Open Calculator →</span>
+        </a>
+        <a href="customgpt-pricing-and-roi-calculator.html" class="partner-card" style="text-decoration:none; color:inherit;">
+          <span class="rec-title">🤖 CustomGPT.ai Pricing &amp; ROI Calculator</span>
+          <p class="rec-desc" style="margin-top:0.5rem;">Calculate ticket deflection savings and managed RAG build vs. buy ROI.</p>
+          <span style="color:#34d399; font-weight:700; font-size:0.85rem;">Open Calculator →</span>
+        </a>
+        <a href="fireflies-ai-roi-calculator.html" class="partner-card" style="text-decoration:none; color:inherit;">
+          <span class="rec-title">🎙️ Fireflies.ai Meeting ROI Calculator</span>
+          <p class="rec-desc" style="margin-top:0.5rem;">Quantify hours and payroll saved automating meeting transcripts &amp; CRM updates.</p>
+          <span style="color:#34d399; font-weight:700; font-size:0.85rem;">Open Calculator →</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><strong>⚡ AIROI.dev</strong> — <a href="index.html" style="color:#34d399;">Back to All AI ROI Calculators</a></div>
+      <div>2026 Independent AI &amp; API Pricing Benchmarks</div>
+    </div>
+  </footer>
+
+  <script>
+    const PRICING = {
+      v3:     { label: "DeepSeek V3",       missIn: 0.27, hitIn: 0.07, out: 1.10 },
+      r1:     { label: "DeepSeek R1",       missIn: 0.55, hitIn: 0.14, out: 2.19 },
+      o3mini: { label: "OpenAI o3-mini",    missIn: 1.10, hitIn: 0.55, out: 4.40 },
+      gpt4o:  { label: "OpenAI GPT-4o",     missIn: 2.50, hitIn: 1.25, out: 10.00 },
+      claude: { label: "Claude 3.7 Sonnet", missIn: 3.00, hitIn: 0.30, out: 15.00 }
+    };
+
+    const deepseekModelEl = document.getElementById("deepseekModel");
+    const requestsEl = document.getElementById("requests");
+    const inputTokensEl = document.getElementById("inputTokens");
+    const outputTokensEl = document.getElementById("outputTokens");
+    const cacheRateEl = document.getElementById("cacheRate");
+
+    function calcModelMonthlyCost(rates, totalInM, totalOutM, hitRatio) {
+      const hitInM = totalInM * hitRatio;
+      const missInM = totalInM * (1 - hitRatio);
+      return (missInM * rates.missIn) + (hitInM * rates.hitIn) + (totalOutM * rates.out);
+    }
+
+    function fmtUsd(amount) {
+      if (amount >= 1000) {
+        return `$${Math.round(amount).toLocaleString()}`;
+      }
+      return `$${amount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    }
+
+    function updateCalculator() {
+      const selectedKey = deepseekModelEl.value;
+      const reqs = parseInt(requestsEl.value, 10);
+      const avgIn = parseInt(inputTokensEl.value, 10);
+      const avgOut = parseInt(outputTokensEl.value, 10);
+      const hitRatio = parseInt(cacheRateEl.value, 10) / 100;
+
+      const totalInM = (reqs * avgIn) / 1_000_000;
+      const totalOutM = (reqs * avgOut) / 1_000_000;
+
+      const cV3 = calcModelMonthlyCost(PRICING.v3, totalInM, totalOutM, hitRatio);
+      const cR1 = calcModelMonthlyCost(PRICING.r1, totalInM, totalOutM, hitRatio);
+      const cO3 = calcModelMonthlyCost(PRICING.o3mini, totalInM, totalOutM, hitRatio);
+      const c4o = calcModelMonthlyCost(PRICING.gpt4o, totalInM, totalOutM, hitRatio);
+      const cClaude = calcModelMonthlyCost(PRICING.claude, totalInM, totalOutM, hitRatio);
+
+      const activeCost = selectedKey === "v3" ? cV3 : cR1;
+      const activeRate = PRICING[selectedKey];
+      const saveGpt4o = Math.max(0, c4o - activeCost);
+      const saveClaude = Math.max(0, cClaude - activeCost);
+      const pctGpt4o = c4o > 0 ? Math.round((saveGpt4o / c4o) * 100) : 0;
+      const pctClaude = cClaude > 0 ? Math.round((saveClaude / cClaude) * 100) : 0;
+      const annualSaveGpt4o = saveGpt4o * 12;
+
+      document.getElementById("modelRateBadge").textContent = `$${activeRate.missIn.toFixed(2)} / $${activeRate.out.toFixed(2)} per 1M`;
+      document.getElementById("requestsVal").textContent = `${reqs.toLocaleString()} req/mo`;
+      document.getElementById("inputTokensVal").textContent = `${avgIn.toLocaleString()} tokens`;
+      document.getElementById("outputTokensVal").textContent = `${avgOut.toLocaleString()} tokens`;
+      document.getElementById("cacheRateVal").textContent = `${Math.round(hitRatio * 100)}% hits`;
+
+      document.getElementById("selectedModelLabel").textContent = `${activeRate.label} Estimated Monthly Bill`;
+      document.getElementById("deepseekMonthlyCost").textContent = `${fmtUsd(activeCost)}/mo`;
+      document.getElementById("savingsSummaryText").innerHTML =
+        `Saves <strong>${fmtUsd(annualSaveGpt4o)}/yr (${pctGpt4o}%)</strong> vs GPT-4o • <strong>${totalInM.toFixed(1)}M</strong> in + <strong>${totalOutM.toFixed(1)}M</strong> out tokens/mo.`;
+
+      document.getElementById("savedVsGpt4o").textContent = `${fmtUsd(saveGpt4o)}/mo (${pctGpt4o}%)`;
+      document.getElementById("savedVsClaude").textContent = `${fmtUsd(saveClaude)}/mo (${pctClaude}%)`;
+
+      const maxCost = Math.max(cV3, cR1, cO3, c4o, cClaude, 1);
+      document.getElementById("costV3").textContent = `${fmtUsd(cV3)}/mo`;
+      document.getElementById("costR1").textContent = `${fmtUsd(cR1)}/mo`;
+      document.getElementById("costO3Mini").textContent = `${fmtUsd(cO3)}/mo`;
+      document.getElementById("costGpt4o").textContent = `${fmtUsd(c4o)}/mo`;
+      document.getElementById("costClaude").textContent = `${fmtUsd(cClaude)}/mo`;
+
+      document.getElementById("barV3").style.width = `${Math.max(3, Math.round((cV3 / maxCost) * 100))}%`;
+      document.getElementById("barR1").style.width = `${Math.max(4, Math.round((cR1 / maxCost) * 100))}%`;
+      document.getElementById("barO3Mini").style.width = `${Math.max(5, Math.round((cO3 / maxCost) * 100))}%`;
+      document.getElementById("barGpt4o").style.width = `${Math.max(6, Math.round((c4o / maxCost) * 100))}%`;
+      document.getElementById("barClaude").style.width = `${Math.max(6, Math.round((cClaude / maxCost) * 100))}%`;
+    }
+
+    [deepseekModelEl, requestsEl, inputTokensEl, outputTokensEl, cacheRateEl].forEach(el => {
+      el.addEventListener("input", updateCalculator);
+      el.addEventListener("change", updateCalculator);
+    });
+
+    updateCalculator();
+  </script>
+</body>
+</html>

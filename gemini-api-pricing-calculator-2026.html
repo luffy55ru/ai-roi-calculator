@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="DAP5OxbQWlkWg3E-838aTb4W8RP-yG6_Dae9UgvgcYU" />
+  <title>Gemini 2.5 Pro &amp; Flash API Pricing Calculator (2026) [Free Tool]</title>
+  <meta name="description" content="Free Gemini 2.5 Pro &amp; Flash API Pricing Calculator (2026). Estimate monthly token costs at $0.15/$0.60 (Flash) and $1.25/$5.00 (Pro), apply 75% context caching savings, and compare monthly savings vs GPT-4o and Claude 3.7 Sonnet." />
+  <link rel="canonical" href="https://luffy55ru.github.io/ai-roi-calculator/gemini-api-pricing-calculator-2026.html" />
+
+  <!-- Favicons for Google Search & Browsers -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Gemini 2.5 Flash API pricing per 1M tokens in 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gemini 2.5 Flash costs $0.15 per 1M input tokens and $0.60 per 1M output tokens, making it up to 94% cheaper than GPT-4o ($2.50/$10.00) and Claude 3.7 Sonnet ($3.00/$15.00) for high-volume production workloads."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Gemini 2.5 Pro API pricing per 1M tokens in 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gemini 2.5 Pro is priced at $1.25 per 1M input tokens and $5.00 per 1M output tokens for standard context windows, delivering frontier reasoning at roughly half the input and output cost of GPT-4o and one-third the output cost of Claude 3.7 Sonnet."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much do you save with Gemini Context Caching?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gemini Context Caching reduces input token charges by 75% on cache hits—dropping cached input pricing to $0.0375 per 1M tokens on Gemini 2.5 Flash and $0.3125 per 1M tokens on Gemini 2.5 Pro for repeated system prompts, codebases, and RAG documents."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="index.html" class="brand-logo">
+        <span class="logo-icon">⚡</span>
+        <span>AIROI<span style="color:#34d399;">.dev</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">All Calculators</a></li>
+        <li><a href="chatgpt-plus-vs-api-cost-calculator.html">ChatGPT vs API</a></li>
+        <li><a href="customgpt-pricing-and-roi-calculator.html">CustomGPT ROI</a></li>
+        <li><a href="fireflies-ai-roi-calculator.html">Fireflies ROI</a></li>
+        <li><a href="simplified-ai-pricing-calculator.html">Simplified ROI</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://customgpt.ai/?fpr=ramadan-bf3619" target="_blank" rel="noopener sponsored" class="btn-primary">Try CustomGPT API →</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero container">
+    <div class="trust-pill">● 2026 Google Gemini API Token &amp; Context Caching Pricing</div>
+    <h1>
+      Gemini 2.5 Pro &amp; Flash<br />
+      <span class="gradient-text">API Pricing Calculator (2026)</span>
+    </h1>
+    <p>
+      Model exact monthly API costs for <strong>Gemini 2.5 Flash ($0.15/$0.60)</strong> and <strong>Gemini 2.5 Pro ($1.25/$5.00)</strong> per 1M tokens with <strong>75% Context Caching savings</strong>—and compare live savings against GPT-4o and Claude 3.7 Sonnet.
+    </p>
+  </section>
+
+  <main class="container">
+    <div class="calc-grid">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">Configure Your Token &amp; Caching Workload</h2>
+            <p class="card-subtitle">Slide traffic volume, context length, and context cache hit rate.</p>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span>Daily API Requests</span>
+            <span id="dailyReqVal" class="control-value">2,500 req/day</span>
+          </div>
+          <input type="range" id="dailyReq" min="50" max="50000" step="50" value="2500" />
+          <div class="range-hints">
+            <span>50/day</span>
+            <span>25,000/day</span>
+            <span>50,000/day</span>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span>Input Tokens Per Request</span>
+            <span id="inputTokVal" class="control-value">8,000 tokens</span>
+          </div>
+          <input type="range" id="inputTok" min="500" max="200000" step="500" value="8000" />
+          <div class="range-hints">
+            <span>500</span>
+            <span>100,000</span>
+            <span>200,000</span>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span>Output Tokens Per Request</span>
+            <span id="outputTokVal" class="control-value">1,000 tokens</span>
+          </div>
+          <input type="range" id="outputTok" min="100" max="8000" step="100" value="1000" />
+          <div class="range-hints">
+            <span>100</span>
+            <span>4,000</span>
+            <span>8,000</span>
+          </div>
+        </div>
+
+        <div class="control-group" style="margin-bottom:0.25rem;">
+          <div class="control-label">
+            <span>Context Caching Hit Rate (75% Input Discount)</span>
+            <span id="cacheHitVal" class="control-value">50% cached</span>
+          </div>
+          <input type="range" id="cacheHit" min="0" max="90" step="5" value="50" />
+          <div class="range-hints">
+            <span>0% (No Cache)</span>
+            <span>45%</span>
+            <span>90%</span>
+          </div>
+        </div>
+
+        <div class="metrics-row" style="margin-top:1.25rem; margin-bottom:0;">
+          <div class="metric-box">
+            <div class="metric-box-label">Monthly Input Volume</div>
+            <div id="monthlyInputVol" class="metric-box-val" style="font-size:1.15rem; color:#93c5fd;">600.0M tok</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-box-label">Monthly Output Volume</div>
+            <div id="monthlyOutputVol" class="metric-box-val" style="font-size:1.15rem; color:#a78bfa;">75.0M tok</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="result-highlight">
+          <div class="result-label">Monthly Savings: Gemini 2.5 Flash vs. Claude 3.7 Sonnet</div>
+          <div id="flashVsClaudeSavings" class="result-big-number">$2,824/mo</div>
+          <p id="savingsSubtext" class="result-subtext">
+            Gemini 2.5 Flash costs $101/mo vs. $1,688/mo on GPT-4o and $2,925/mo on Claude 3.7 Sonnet.
+          </p>
+        </div>
+
+        <div class="metrics-row">
+          <div class="metric-box">
+            <div class="metric-box-label">Gemini 2.5 Flash / Mo</div>
+            <div id="flashCostBox" class="metric-box-val" style="color:#34d399;">$101/mo</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-box-label">Gemini 2.5 Pro / Mo</div>
+            <div id="proCostBox" class="metric-box-val" style="color:#60a5fa;">$844/mo</div>
+          </div>
+        </div>
+
+        <div class="metrics-row">
+          <div class="metric-box">
+            <div class="metric-box-label">Flash Savings vs GPT-4o</div>
+            <div id="flashVsGptSavings" class="metric-box-val" style="color:#34d399; font-size:1.15rem;">$1,586/mo (94%)</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-box-label">Pro Savings vs Claude 3.7</div>
+            <div id="proVsClaudeSavings" class="metric-box-val" style="color:#93c5fd; font-size:1.15rem;">$2,081/mo (71%)</div>
+          </div>
+        </div>
+
+        <div class="model-bar-list" style="margin-bottom:1.15rem;">
+          <div class="model-bar-item">
+            <div class="model-bar-header">
+              <span>Gemini 2.5 Flash ($0.15 / $0.60 per 1M)</span>
+              <span id="barValFlash" style="color:#34d399;">$101/mo</span>
+            </div>
+            <div class="model-bar-track">
+              <div id="barFillFlash" class="model-bar-fill" style="width:4%;"></div>
+            </div>
+          </div>
+          <div class="model-bar-item">
+            <div class="model-bar-header">
+              <span>Gemini 2.5 Pro ($1.25 / $5.00 per 1M)</span>
+              <span id="barValPro" style="color:#60a5fa;">$844/mo</span>
+            </div>
+            <div class="model-bar-track">
+              <div id="barFillPro" class="model-bar-fill" style="width:29%; background:linear-gradient(90deg,#3b82f6,#60a5fa);"></div>
+            </div>
+          </div>
+          <div class="model-bar-item">
+            <div class="model-bar-header">
+              <span>GPT-4o ($2.50 / $10.00 per 1M)</span>
+              <span id="barValGpt" style="color:#f59e0b;">$1,688/mo</span>
+            </div>
+            <div class="model-bar-track">
+              <div id="barFillGpt" class="model-bar-fill" style="width:58%; background:linear-gradient(90deg,#d97706,#f59e0b);"></div>
+            </div>
+          </div>
+          <div class="model-bar-item">
+            <div class="model-bar-header">
+              <span>Claude 3.7 Sonnet ($3.00 / $15.00 per 1M)</span>
+              <span id="barValClaude" style="color:#fb7185;">$2,925/mo</span>
+            </div>
+            <div class="model-bar-track">
+              <div id="barFillClaude" class="model-bar-fill" style="width:100%; background:linear-gradient(90deg,#e11d48,#fb7185);"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="cacheSavingsBanner" style="font-size:0.86rem; color:#34d399; background:rgba(16,185,129,0.10); border:1px solid rgba(16,185,129,0.3); border-radius:10px; padding:0.65rem 0.9rem; margin-bottom:1rem;">
+          Context Caching saves <strong>$34/mo</strong> on Flash &amp; <strong>$281/mo</strong> on Pro at a 50% hit rate.
+        </div>
+
+        <div class="rec-card" style="border-color:var(--accent-emerald);">
+          <div class="rec-top">
+            <span class="rec-title">Skip Token Plumbing: CustomGPT.ai RAG API</span>
+            <span class="rec-badge">Managed RAG</span>
+          </div>
+          <p class="rec-desc">Need citation-backed answers over company docs without maintaining chunking, vector stores, or cache invalidation? Deploy a production RAG API in minutes.</p>
+          <div class="rec-footer">
+            <span class="rec-price">7-Day Free Trial • Anti-Hallucination</span>
+            <a href="https://customgpt.ai/?fpr=ramadan-bf3619" target="_blank" rel="noopener sponsored" class="btn-primary">Try CustomGPT.ai →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section-block">
+      <div class="section-header">
+        <h2>Cut AI Build &amp; Content Costs Even Further</h2>
+        <p style="color:var(--text-secondary);">Combine low-cost Gemini API execution with turnkey RAG infrastructure and all-in-one AI creative workflows.</p>
+      </div>
+      <div class="partner-grid">
+        <div class="rec-card" style="margin-top:0; border-color:var(--accent-emerald);">
+          <div class="rec-top">
+            <span class="rec-title">⚡ CustomGPT.ai</span>
+            <span class="rec-badge">Turnkey RAG API</span>
+          </div>
+          <p class="rec-desc">Launch accurate, citation-backed enterprise AI agents over 1,400+ document formats via REST API without managing vector DBs or token billing spikes.</p>
+          <div class="rec-footer">
+            <span class="rec-price">Starts $89/mo • 7-Day Free Trial</span>
+            <a href="https://customgpt.ai/?fpr=ramadan-bf3619" target="_blank" rel="noopener sponsored" class="btn-primary">Start CustomGPT.ai →</a>
+          </div>
+        </div>
+
+        <div class="rec-card" style="margin-top:0; border-color:var(--accent-indigo);">
+          <div class="rec-top">
+            <span class="rec-title">🎨 Simplified AI</span>
+            <span class="rec-badge">All-in-One AI Suite</span>
+          </div>
+          <p class="rec-desc">Replace separate ChatGPT, Canva, and social scheduling subscriptions with one unified AI workspace for marketing copy, design, video, and publishing.</p>
+          <div class="rec-footer">
+            <span class="rec-price">Free Plan &amp; Pro Tiers</span>
+            <a href="https://simplified.com?fpr=ramadan-b1d241" target="_blank" rel="noopener sponsored" class="btn-primary">Try Simplified AI →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-header">
+        <h2>Gemini 2.5 Pro &amp; Flash API Pricing FAQ (2026)</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>What is Gemini 2.5 Flash API pricing per 1M tokens in 2026? <span>+</span></summary>
+          <p>Gemini 2.5 Flash costs <strong>$0.15 per 1M input tokens</strong> and <strong>$0.60 per 1M output tokens</strong>. Compared to GPT-4o ($2.50/$10.00) and Claude 3.7 Sonnet ($3.00/$15.00), Gemini 2.5 Flash cuts monthly LLM API bills by 90%–96% on extraction, RAG synthesis, and high-throughput agent pipelines.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What is Gemini 2.5 Pro API pricing per 1M tokens in 2026? <span>+</span></summary>
+          <p>Gemini 2.5 Pro costs <strong>$1.25 per 1M input tokens</strong> and <strong>$5.00 per 1M output tokens</strong>, giving engineering teams flagship reasoning and coding quality at 50% lower cost than GPT-4o and 58%–67% lower cost than Claude 3.7 Sonnet.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do 75% Gemini Context Caching savings work in this calculator? <span>+</span></summary>
+          <p>When your requests reuse long system prompts, knowledge bases, or repository context, Gemini Context Caching applies a <strong>75% discount on cached input tokens</strong>—reducing input rates to $0.0375/1M on Flash and $0.3125/1M on Pro for the percentage of requests hitting cache.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-header">
+        <h2>Explore More Specialized AI ROI Calculators</h2>
+      </div>
+      <div class="partner-grid">
+        <a href="api-management-platform-roi-calculator.html" class="partner-card" style="text-decoration:none; color:inherit;">
+          <span class="rec-title">🛡️ API Management Platform ROI Calculator</span>
+          <p class="rec-desc" style="margin-top:0.5rem;">Calculate engineering hours reclaimed and LLM governance savings.</p>
+          <span style="color:#34d399; font-weight:700; font-size:0.85rem;">Open Calculator →</span>
+        </a>
+        <a href="chatgpt-plus-vs-api-cost-calculator.html" class="partner-card" style="text-decoration:none; color:inherit;">
+          <span class="rec-title">💳 ChatGPT Plus vs. API Calculator</span>
+          <p class="rec-desc" style="margin-top:0.5rem;">Compare $20/mo flat subscriptions vs pay-as-you-go API token costs.</p>
+          <span style="color:#34d399; font-weight:700; font-size:0.85rem;">Open Calculator →</span>
+        </a>
+        <a href="customgpt-pricing-and-roi-calculator.html" class="partner-card" style="text-decoration:none; color:inherit;">
+          <span class="rec-title">🤖 CustomGPT.ai Pricing &amp; ROI Calculator</span>
+          <p class="rec-desc" style="margin-top:0.5rem;">Calculate ticket deflection savings and RAG build vs. buy ROI.</p>
+          <span style="color:#34d399; font-weight:700; font-size:0.85rem;">Open Calculator →</span>
+        </a>
+        <a href="simplified-ai-pricing-calculator.html" class="partner-card" style="text-decoration:none; color:inherit;">
+          <span class="rec-title">🎨 Simplified AI Stack Consolidation Calculator</span>
+          <p class="rec-desc" style="margin-top:0.5rem;">See how much you save replacing Canva, ChatGPT, and Buffer with Simplified.</p>
+          <span style="color:#34d399; font-weight:700; font-size:0.85rem;">Open Calculator →</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><strong>⚡ AIROI.dev</strong> — <a href="index.html" style="color:#34d399;">Back to All AI ROI Calculators</a></div>
+      <div>2026 Independent AI &amp; API Pricing Benchmarks</div>
+    </div>
+  </footer>
+
+  <script>
+    const dailyReq = document.getElementById("dailyReq");
+    const inputTok = document.getElementById("inputTok");
+    const outputTok = document.getElementById("outputTok");
+    const cacheHit = document.getElementById("cacheHit");
+
+    const MODELS = {
+      flash: { inRate: 0.15, outRate: 0.60, cacheDiscount: 0.75 },
+      pro: { inRate: 1.25, outRate: 5.00, cacheDiscount: 0.75 },
+      gpt4o: { inRate: 2.50, outRate: 10.00, cacheDiscount: 0.50 },
+      claude: { inRate: 3.00, outRate: 15.00, cacheDiscount: 0.00 }
+    };
+
+    function fmtMoney(val) {
+      if (val < 10 && val > 0) {
+        return `$${val.toFixed(2)}`;
+      }
+      return `$${Math.round(val).toLocaleString()}`;
+    }
+
+    function fmtTokensM(m) {
+      if (m >= 1000) {
+        return `${(m / 1000).toFixed(2)}B tok`;
+      }
+      return `${m.toFixed(1)}M tok`;
+    }
+
+    function calcModelCost(model, inputM, outputM, hitRate) {
+      const effectiveInRate = model.inRate * (1 - hitRate * model.cacheDiscount);
+      return inputM * effectiveInRate + outputM * model.outRate;
+    }
+
+    function updateGeminiCalc() {
+      const reqs = parseInt(dailyReq.value, 10);
+      const inTok = parseInt(inputTok.value, 10);
+      const outTok = parseInt(outputTok.value, 10);
+      const hitRate = parseInt(cacheHit.value, 10) / 100;
+
+      const monthlyReqs = reqs * 30;
+      const inputM = (monthlyReqs * inTok) / 1e6;
+      const outputM = (monthlyReqs * outTok) / 1e6;
+
+      const flashCost = calcModelCost(MODELS.flash, inputM, outputM, hitRate);
+      const proCost = calcModelCost(MODELS.pro, inputM, outputM, hitRate);
+      const gptCost = calcModelCost(MODELS.gpt4o, inputM, outputM, hitRate);
+      const claudeCost = calcModelCost(MODELS.claude, inputM, outputM, hitRate);
+
+      const flashUncached = calcModelCost(MODELS.flash, inputM, outputM, 0);
+      const proUncached = calcModelCost(MODELS.pro, inputM, outputM, 0);
+      const flashCacheSaved = Math.max(0, flashUncached - flashCost);
+      const proCacheSaved = Math.max(0, proUncached - proCost);
+
+      const flashSaveVsClaude = Math.max(0, claudeCost - flashCost);
+      const flashSaveVsGpt = Math.max(0, gptCost - flashCost);
+      const flashSaveGptPct = gptCost > 0 ? Math.round((flashSaveVsGpt / gptCost) * 100) : 0;
+
+      const proSaveVsClaude = Math.max(0, claudeCost - proCost);
+      const proSaveClaudePct = claudeCost > 0 ? Math.round((proSaveVsClaude / claudeCost) * 100) : 0;
+
+      const maxCost = Math.max(claudeCost, gptCost, proCost, flashCost, 1);
+
+      document.getElementById("dailyReqVal").textContent = `${reqs.toLocaleString()} req/day`;
+      document.getElementById("inputTokVal").textContent = `${inTok.toLocaleString()} tokens`;
+      document.getElementById("outputTokVal").textContent = `${outTok.toLocaleString()} tokens`;
+      document.getElementById("cacheHitVal").textContent = `${Math.round(hitRate * 100)}% cached`;
+
+      document.getElementById("monthlyInputVol").textContent = fmtTokensM(inputM);
+      document.getElementById("monthlyOutputVol").textContent = fmtTokensM(outputM);
+
+      document.getElementById("flashVsClaudeSavings").textContent = `${fmtMoney(flashSaveVsClaude)}/mo`;
+      document.getElementById("savingsSubtext").textContent =
+        `Gemini 2.5 Flash costs ${fmtMoney(flashCost)}/mo vs. ${fmtMoney(gptCost)}/mo on GPT-4o and ${fmtMoney(claudeCost)}/mo on Claude 3.7 Sonnet.`;
+
+      document.getElementById("flashCostBox").textContent = `${fmtMoney(flashCost)}/mo`;
+      document.getElementById("proCostBox").textContent = `${fmtMoney(proCost)}/mo`;
+      document.getElementById("flashVsGptSavings").textContent = `${fmtMoney(flashSaveVsGpt)}/mo (${flashSaveGptPct}%)`;
+      document.getElementById("proVsClaudeSavings").textContent = `${fmtMoney(proSaveVsClaude)}/mo (${proSaveClaudePct}%)`;
+
+      document.getElementById("barValFlash").textContent = `${fmtMoney(flashCost)}/mo`;
+      document.getElementById("barValPro").textContent = `${fmtMoney(proCost)}/mo`;
+      document.getElementById("barValGpt").textContent = `${fmtMoney(gptCost)}/mo`;
+      document.getElementById("barValClaude").textContent = `${fmtMoney(claudeCost)}/mo`;
+
+      document.getElementById("barFillFlash").style.width = `${Math.max(2, (flashCost / maxCost) * 100)}%`;
+      document.getElementById("barFillPro").style.width = `${Math.max(2, (proCost / maxCost) * 100)}%`;
+      document.getElementById("barFillGpt").style.width = `${Math.max(2, (gptCost / maxCost) * 100)}%`;
+      document.getElementById("barFillClaude").style.width = `${Math.max(2, (claudeCost / maxCost) * 100)}%`;
+
+      document.getElementById("cacheSavingsBanner").innerHTML =
+        `Context Caching (75% input discount) saves <strong>${fmtMoney(flashCacheSaved)}/mo</strong> on Flash &amp; <strong>${fmtMoney(proCacheSaved)}/mo</strong> on Pro at a ${Math.round(hitRate * 100)}% hit rate.`;
+    }
+
+    [dailyReq, inputTok, outputTok, cacheHit].forEach(el => el.addEventListener("input", updateGeminiCalc));
+    updateGeminiCalc();
+  </script>
+</body>
+</html>

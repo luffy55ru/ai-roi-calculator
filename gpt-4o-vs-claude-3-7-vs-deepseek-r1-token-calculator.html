@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="DAP5OxbQWlkWg3E-838aTb4W8RP-yG6_Dae9UgvgcYU" />
+  <title>LLM Token Counter &amp; Cost Calculator (2026) — GPT-4o, Claude, DeepSeek</title>
+  <meta name="description" content="Free real-time LLM Token Counter &amp; 6-Model Cost Calculator (2026). Paste your prompt or document to count words, characters, and estimated tokens, and compare per-call and monthly API costs across Gemini 2.5 Flash, DeepSeek R1, GPT-4o mini, Gemini 2.5 Pro, GPT-4o, and Claude 3.7 Sonnet." />
+  <link rel="canonical" href="https://luffy55ru.github.io/ai-roi-calculator/gpt-4o-vs-claude-3-7-vs-deepseek-r1-token-calculator.html" />
+
+  <!-- Favicons for Google Search & Browsers -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    .prompt-textarea {
+      width: 100%;
+      min-height: 220px;
+      padding: 0.95rem 1rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      line-height: 1.55;
+      resize: vertical;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .prompt-textarea:focus {
+      outline: none;
+      border-color: var(--accent-emerald);
+      box-shadow: 0 0 0 3px var(--accent-emerald-glow);
+    }
+    .preset-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin: 0.75rem 0 1.25rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .preset-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .preset-btn {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.42rem 0.78rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .preset-btn:hover,
+    .preset-btn.active {
+      background: rgba(16, 185, 129, 0.14);
+      border-color: var(--accent-emerald);
+      color: #6ee7b7;
+    }
+    .token-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .cost-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background: rgba(9, 13, 22, 0.55);
+    }
+    .cost-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+    }
+    .cost-table th {
+      text-align: left;
+      padding: 0.75rem 0.85rem;
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .cost-table td {
+      padding: 0.78rem 0.85rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      vertical-align: middle;
+    }
+    .cost-table tr:last-child td {
+      border-bottom: none;
+    }
+    .cost-table tr.best-value {
+      background: rgba(16, 185, 129, 0.08);
+    }
+    .mono-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+    }
+    .model-sub {
+      display: block;
+      font-size: 0.73rem;
+      color: var(--text-muted);
+      margin-top: 0.12rem;
+    }
+    .pill-cheapest {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.12rem 0.45rem;
+      border-radius: 99px;
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      margin-left: 0.35rem;
+      vertical-align: middle;
+    }
+    @media (max-width: 640px) {
+      .token-stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How are LLM tokens estimated from pasted text?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "English prose and mixed code average roughly 0.75 words per token, or about 1.33 tokens per word. This calculator counts words in real time and multiplies by 1.33 (rounded up with Math.ceil) to give an instant, reliable token estimate across OpenAI, Anthropic, Google Gemini, and DeepSeek tokenizers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do GPT-4o, Claude 3.7 Sonnet, and DeepSeek R1 compare on API cost in 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Per 1M input/output tokens in 2026: Gemini 2.5 Flash and GPT-4o mini cost $0.15/$0.60, DeepSeek R1 costs $0.55/$2.19, Gemini 2.5 Pro costs $1.25/$5.00, GPT-4o costs $2.50/$10.00, and Claude 3.7 Sonnet costs $3.00/$15.00. Switching high-volume prompts from Claude 3.7 Sonnet or GPT-4o to Gemini 2.5 Flash or DeepSeek R1 can cut monthly API spend by 75% to 95%."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I reduce high RAG context token costs without hurting answer quality?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Instead of stuffing 10,000-word documents into every GPT-4o or Claude 3.7 Sonnet prompt, use chunked retrieval, prompt caching, or a managed RAG API like CustomGPT.ai that indexes your knowledge base once and serves citation-backed answers with predictable pricing."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="index.html" class="brand-logo">
+        <span class="logo-icon">⚡</span>
+        <span>AIROI<span style="color:#34d399;">.dev</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">All 4 Calculators</a></li>
+        <li><a href="chatgpt-plus-vs-api-cost-calculator.html">ChatGPT vs API</a></li>
+        <li><a href="customgpt-pricing-and-roi-calculator.html">CustomGPT ROI</a></li>
+        <li><a href="fireflies-ai-roi-calculator.html">Fireflies ROI</a></li>
+        <li><a href="simplified-ai-pricing-calculator.html">Simplified ROI</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://customgpt.ai/?fpr=ramadan-bf3619" target="_blank" rel="noopener sponsored" class="btn-primary">Try CustomGPT API →</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero container">
+    <div class="trust-pill">● Real-Time 2026 LLM Tokenizer &amp; 6-Model Pricing Benchmark</div>
+    <h1>
+      Paste-Text LLM Token Counter &amp;<br />
+      <span class="gradient-text">6-Model Cost Calculator (2026)</span>
+    </h1>
+    <p>
+      Paste any prompt, RAG context, or full document below to count exact words, characters, and estimated tokens in real time—then compare per-call and monthly API spend across <strong>Gemini 2.5 Flash, DeepSeek R1, GPT-4o mini, Gemini 2.5 Pro, GPT-4o, and Claude 3.7 Sonnet</strong>.
+    </p>
+  </section>
+
+  <main class="container">
+    <div class="calc-grid">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">1. Paste Your Prompt or Document</h2>
+            <p class="card-subtitle">Type or paste text directly, or load a sample payload preset.</p>
+          </div>
+        </div>
+
+        <label for="promptInput" style="display:block; font-size:0.86rem; font-weight:600; margin-bottom:0.45rem; color:var(--text-secondary);">
+          Input Prompt / System Instructions / RAG Context
+        </label>
+        <textarea id="promptInput" class="prompt-textarea" placeholder="Paste your prompt, JSON payload, code snippet, or document text here..."></textarea>
+
+        <div class="preset-row">
+          <div class="preset-buttons">
+            <button type="button" class="preset-btn active" data-preset="short">Short Prompt</button>
+            <button type="button" class="preset-btn" data-preset="rag">RAG Context (2k words)</button>
+            <button type="button" class="preset-btn" data-preset="doc">Full Doc (10k words)</button>
+          </div>
+          <button type="button" id="clearTextBtn" class="preset-btn">Clear</button>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span>Daily API Calls</span>
+            <span id="dailyCallsVal" class="control-value">1,000 calls/day</span>
+          </div>
+          <input type="range" id="dailyCalls" min="1" max="50000" step="50" value="1000" />
+          <div class="range-hints">
+            <span>1 call</span>
+            <span>25,000 calls</span>
+            <span>50,000 calls</span>
+          </div>
+        </div>
+
+        <div class="control-group" style="margin-bottom:0.25rem;">
+          <div class="control-label">
+            <span>Expected Output Tokens per Call</span>
+            <span id="outputTokensVal" class="control-value">500 tokens</span>
+          </div>
+          <input type="range" id="outputTokens" min="100" max="4000" step="50" value="500" />
+          <div class="range-hints">
+            <span>100 tokens</span>
+            <span>2,000 tokens</span>
+            <span>4,000 tokens</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="result-highlight">
+          <div class="result-label">Estimated Input Tokens (Live)</div>
+          <div id="estTokensHero" class="result-big-number">64 tokens</div>
+          <p id="monthlySpreadSub" class="result-subtext">
+            At 1,000 calls/day, monthly cost ranges from $9.29/mo (Gemini 2.5 Flash) to $230.76/mo (Claude 3.7 Sonnet).
+          </p>
+        </div>
+
+        <div class="token-stats-grid">
+          <div class="metric-box">
+            <div class="metric-box-label">Words</div>
+            <div id="wordCountBox" class="metric-box-val" style="color:#f8fafc;">48</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-box-label">Characters</div>
+            <div id="charCountBox" class="metric-box-val" style="color:#93c5fd;">312</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-box-label">Est. Tokens (×1.33)</div>
+            <div id="tokenCountBox" class="metric-box-val" style="color:#34d399;">64</div>
+          </div>
+        </div>
+
+        <div class="cost-table-wrap">
+          <table class="cost-table" aria-label="6-Model LLM API Cost Comparison">
+            <thead>
+              <tr>
+                <th>Model (2026 Rates)</th>
+                <th>Cost / Call</th>
+                <th>Monthly Cost (30d)</th>
+              </tr>
+            </thead>
+            <tbody id="modelCostBody"></tbody>
+          </table>
+        </div>
+
+        <div class="rec-card" style="border-color:var(--accent-emerald);">
+          <div class="rec-top">
+            <span class="rec-title">CustomGPT.ai — Cut Raw Context Token Spend</span>
+            <span class="rec-badge">Managed RAG</span>
+          </div>
+          <p class="rec-desc">Sending 2k–10k words on every API call explodes token bills. Index docs once in CustomGPT.ai for citation-backed RAG answers without raw prompt bloat.</p>
+          <div class="rec-footer">
+            <span class="rec-price">Starts $89/mo • REST API Included</span>
+            <a href="https://customgpt.ai/?fpr=ramadan-bf3619" target="_blank" rel="noopener sponsored" class="btn-primary">Try CustomGPT.ai →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section-block">
+      <div class="section-header">
+        <h2>Recommended AI Stack to Lower Token &amp; Production Costs</h2>
+        <p style="color:var(--text-secondary);">Pair lean LLM API routing with managed RAG, automated meeting transcripts, and all-in-one content workflows.</p>
+      </div>
+      <div class="partner-grid">
+        <div class="rec-card" style="margin-top:0; border-color:var(--accent-emerald);">
+          <div class="rec-top">
+            <span class="rec-title">⚡ CustomGPT.ai</span>
+            <span class="rec-badge">Best for RAG</span>
+          </div>
+          <p class="rec-desc">Eliminate huge context-window token bills by indexing PDFs, help centers, and internal docs into a hosted, anti-hallucination RAG API.</p>
+          <div class="rec-footer">
+            <span class="rec-price">7-Day Free Trial</span>
+            <a href="https://customgpt.ai/?fpr=ramadan-bf3619" target="_blank" rel="noopener sponsored" class="btn-primary">Try CustomGPT.ai →</a>
+          </div>
+        </div>
+
+        <div class="rec-card" style="margin-top:0;">
+          <div class="rec-top">
+            <span class="rec-title">🎨 Simplified AI</span>
+            <span class="rec-badge">All-in-One AI</span>
+          </div>
+          <p class="rec-desc">Replace fragmented ChatGPT, copywriting, design, and social scheduling subscriptions with one unified AI workspace for marketing teams.</p>
+          <div class="rec-footer">
+            <span class="rec-price">Free Plan &amp; Pro Suites</span>
+            <a href="https://simplified.com?fpr=ramadan-b1d241" target="_blank" rel="noopener sponsored" class="btn-primary">Try Simplified AI →</a>
+          </div>
+        </div>
+
+        <div class="rec-card" style="margin-top:0;">
+          <div class="rec-top">
+            <span class="rec-title">🎙️ Fireflies.ai</span>
+            <span class="rec-badge">Meeting AI</span>
+          </div>
+          <p class="rec-desc">Stop burning raw API tokens summarizing call recordings manually. Auto-transcribe Zoom/Meet calls with AI summaries and CRM sync.</p>
+          <div class="rec-footer">
+            <span class="rec-price">Free Plan Available</span>
+            <a href="https://fireflies.ai/?fpr=ramadan-f8b4db" target="_blank" rel="noopener sponsored" class="btn-primary">Try Fireflies.ai →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-header">
+        <h2>LLM Token Counting &amp; API Pricing FAQ (2026)</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>How are LLM tokens estimated from pasted text? <span>+</span></summary>
+          <p>Most modern BPE tokenizers (OpenAI tiktoken, Claude, Gemini, DeepSeek) average roughly 0.75 words per token on English text—equivalent to ~1.33 tokens per word. This tool counts words in real time and computes <code>Math.ceil(words * 1.33)</code> so you can benchmark prompt sizes instantly before calling any API.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do GPT-4o, Claude 3.7 Sonnet, and DeepSeek R1 compare on API cost in 2026? <span>+</span></summary>
+          <p>Per 1M input/output tokens: <strong>Gemini 2.5 Flash</strong> ($0.15 / $0.60) and <strong>GPT-4o mini</strong> ($0.15 / $0.60) are the lowest-cost production workhorses; <strong>DeepSeek R1</strong> ($0.55 / $2.19) brings reasoning at a fraction of frontier pricing; <strong>Gemini 2.5 Pro</strong> ($1.25 / $5.00) undercuts <strong>GPT-4o</strong> ($2.50 / $10.00) by 50%; and <strong>Claude 3.7 Sonnet</strong> ($3.00 / $15.00) carries the highest output token rate.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How can I reduce high RAG context token costs without hurting answer quality? <span>+</span></summary>
+          <p>Passing 2,000 to 10,000 words of uncached context into every GPT-4o or Claude call multiplies monthly costs fast. Offloading retrieval and prompt orchestration to a managed RAG platform like CustomGPT.ai or routing routine classification calls to Gemini 2.5 Flash / GPT-4o mini typically cuts spend by 70%–94%.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-header">
+        <h2>Explore More Specialized AI ROI Calculators</h2>
+      </div>
+      <div class="partner-grid">
+        <a href="chatgpt-plus-vs-api-cost-calculator.html" class="partner-card" style="text-decoration:none; color:inherit;">
+          <span class="rec-title">💳 ChatGPT Plus vs. API Calculator</span>
+          <p class="rec-desc" style="margin-top:0.5rem;">Compare $20/mo flat subscriptions vs pay-as-you-go API token costs.</p>
+          <span style="color:#34d399; font-weight:700; font-size:0.85rem;">Open Calculator →</span>
+        </a>
+        <a href="gemini-api-pricing-calculator-2026.html" class="partner-card" style="text-decoration:none; color:inherit;">
+          <span class="rec-title">💎 Gemini 2.5 Pro &amp; Flash Calculator</span>
+          <p class="rec-desc" style="margin-top:0.5rem;">Model Gemini 2.5 API costs with 75% context caching discounts.</p>
+          <span style="color:#34d399; font-weight:700; font-size:0.85rem;">Open Calculator →</span>
+        </a>
+        <a href="api-management-platform-roi-calculator.html" class="partner-card" style="text-decoration:none; color:inherit;">
+          <span class="rec-title">🛡️ API Management Platform ROI</span>
+          <p class="rec-desc" style="margin-top:0.5rem;">Calculate gateway engineering savings and LLM caching ROI.</p>
+          <span style="color:#34d399; font-weight:700; font-size:0.85rem;">Open Calculator →</span>
+        </a>
+        <a href="customgpt-pricing-and-roi-calculator.html" class="partner-card" style="text-decoration:none; color:inherit;">
+          <span class="rec-title">🤖 CustomGPT.ai Pricing &amp; ROI</span>
+          <p class="rec-desc" style="margin-top:0.5rem;">Calculate ticket deflection savings and RAG build vs. buy ROI.</p>
+          <span style="color:#34d399; font-weight:700; font-size:0.85rem;">Open Calculator →</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><strong>⚡ AIROI.dev</strong> — <a href="index.html" style="color:#34d399;">Back to All AI ROI Calculators</a></div>
+      <div>2026 Independent AI &amp; API Pricing Benchmarks</div>
+    </div>
+  </footer>
+
+  <script>
+    const MODELS = [
+      { name: "Gemini 2.5 Flash", inputPerM: 0.15, outputPerM: 0.60, tier: "Fastest & Lowest Cost" },
+      { name: "GPT-4o mini", inputPerM: 0.15, outputPerM: 0.60, tier: "Lightweight OpenAI" },
+      { name: "DeepSeek R1", inputPerM: 0.55, outputPerM: 2.19, tier: "Reasoning Value" },
+      { name: "Gemini 2.5 Pro", inputPerM: 1.25, outputPerM: 5.00, tier: "Long-Context Frontier" },
+      { name: "GPT-4o", inputPerM: 2.50, outputPerM: 10.00, tier: "OpenAI Flagship" },
+      { name: "Claude 3.7 Sonnet", inputPerM: 3.00, outputPerM: 15.00, tier: "Anthropic Flagship" }
+    ];
+
+    const SHORT_SAMPLE = "You are a senior solutions architect. Summarize the customer's support ticket, extract the root technical cause, list three actionable remediation steps with priority tags, and return valid JSON matching the schema below without extra commentary.";
+
+    function buildWordTargetText(targetWords) {
+      const baseSentence = "In production retrieval-augmented generation pipelines, semantic chunking, metadata filtering, hybrid vector search, prompt caching, and strict output validation reduce latency and prevent hallucinated citations across enterprise knowledge bases.";
+      const chunkWords = baseSentence.split(/\s+/).length; // 25 words
+      const repeats = Math.max(1, Math.round(targetWords / chunkWords));
+      const parts = [];
+      for (let i = 1; i <= repeats; i++) {
+        parts.push(`[Doc Chunk #${i}] ${baseSentence}`);
+      }
+      return parts.join(" ").split(/\s+/).slice(0, targetWords).join(" ");
+    }
+
+    const PRESETS = {
+      short: SHORT_SAMPLE,
+      rag: buildWordTargetText(2000),
+      doc: buildWordTargetText(10000)
+    };
+
+    const promptInput = document.getElementById("promptInput");
+    const dailyCalls = document.getElementById("dailyCalls");
+    const outputTokens = document.getElementById("outputTokens");
+    const presetButtons = document.querySelectorAll(".preset-btn[data-preset]");
+    const clearTextBtn = document.getElementById("clearTextBtn");
+
+    function countWords(text) {
+      const trimmed = text.trim();
+      if (!trimmed) return 0;
+      return trimmed.split(/\s+/).length;
+    }
+
+    function formatCurrency(val) {
+      if (val < 0.01 && val > 0) return `$${val.toFixed(5)}`;
+      if (val < 1) return `$${val.toFixed(4)}`;
+      if (val < 100) return `$${val.toFixed(2)}`;
+      return `$${Math.round(val).toLocaleString()}`;
+    }
+
+    function updateCalculator() {
+      const text = promptInput.value;
+      const words = countWords(text);
+      const chars = text.length;
+      const inputTokens = words === 0 ? 0 : Math.ceil(words * 1.33);
+      const callsPerDay = parseInt(dailyCalls.value, 10);
+      const outTokens = parseInt(outputTokens.value, 10);
+      const monthlyCalls = callsPerDay * 30;
+
+      document.getElementById("dailyCallsVal").textContent = `${callsPerDay.toLocaleString()} calls/day`;
+      document.getElementById("outputTokensVal").textContent = `${outTokens.toLocaleString()} tokens`;
+
+      document.getElementById("wordCountBox").textContent = words.toLocaleString();
+      document.getElementById("charCountBox").textContent = chars.toLocaleString();
+      document.getElementById("tokenCountBox").textContent = inputTokens.toLocaleString();
+      document.getElementById("estTokensHero").textContent = `${inputTokens.toLocaleString()} tokens`;
+
+      const rows = MODELS.map((m) => {
+        const costPerCall = (inputTokens / 1e6) * m.inputPerM + (outTokens / 1e6) * m.outputPerM;
+        const monthlyCost = costPerCall * monthlyCalls;
+        return { ...m, costPerCall, monthlyCost };
+      });
+
+      const minMonthly = Math.min(...rows.map(r => r.monthlyCost));
+      const maxMonthly = Math.max(...rows.map(r => r.monthlyCost));
+
+      document.getElementById("monthlySpreadSub").textContent =
+        `At ${callsPerDay.toLocaleString()} calls/day (${monthlyCalls.toLocaleString()}/mo), monthly cost spans ${formatCurrency(minMonthly)}/mo (Gemini 2.5 Flash) to ${formatCurrency(maxMonthly)}/mo (Claude 3.7 Sonnet).`;
+
+      const tbody = document.getElementById("modelCostBody");
+      tbody.innerHTML = rows.map((r, idx) => {
+        const isCheapest = idx === 0;
+        const rowClass = isCheapest ? ' class="best-value"' : "";
+        const badge = isCheapest ? '<span class="pill-cheapest">Lowest Cost</span>' : "";
+        const priceColor = idx <= 1 ? "#34d399" : idx === 2 ? "#93c5fd" : idx === 3 ? "#a5b4fc" : idx === 4 ? "#fbbf24" : "#fb7185";
+        return `
+          <tr${rowClass}>
+            <td>
+              <strong>${r.name}</strong>${badge}
+              <span class="model-sub">$${r.inputPerM.toFixed(2)} in / $${r.outputPerM.toFixed(2)} out per 1M</span>
+            </td>
+            <td class="mono-num">${formatCurrency(r.costPerCall)}</td>
+            <td class="mono-num" style="color:${priceColor};">${formatCurrency(r.monthlyCost)}/mo</td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    presetButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        presetButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        promptInput.value = PRESETS[btn.dataset.preset];
+        updateCalculator();
+      });
+    });
+
+    clearTextBtn.addEventListener("click", () => {
+      presetButtons.forEach(b => b.classList.remove("active"));
+      promptInput.value = "";
+      updateCalculator();
+      promptInput.focus();
+    });
+
+    promptInput.addEventListener("input", () => {
+      presetButtons.forEach(b => b.classList.remove("active"));
+      updateCalculator();
+    });
+    dailyCalls.addEventListener("input", updateCalculator);
+    outputTokens.addEventListener("input", updateCalculator);
+
+    // Initialize with Short Prompt preset
+    promptInput.value = PRESETS.short;
+    updateCalculator();
+  </script>
+</body>
+</html>
